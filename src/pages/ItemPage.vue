@@ -99,24 +99,24 @@ fetchItem()
 </script>
 
 <style scoped>
-  h1 {
-    border-top: 1pt solid #444;
-    margin-top: 4rem;
-    padding-top: 1rem;
-    color: var(--bs-primary);
-  }
+h1 {
+  border-top: 1pt solid #444;
+  margin-top: 4rem;
+  padding-top: 1rem;
+  color: var(--bs-primary);
+}
 
-  .dependency {
-    background-color: #181818;
-    text-align: center;
-  }
+.dependency {
+  background-color: #181818;
+  text-align: center;
+}
 
-  .dependency h1 {
-    font-size: 14pt;
-  }
+.dependency h1 {
+  font-size: 14pt;
+}
 
-  .side-summary {
-    padding: 0.5rem 0.75rem;
-    border: 2px solid var(--bs-primary);
-  }
+.side-summary {
+  padding: 0.5rem 0.75rem;
+  border: 2px solid var(--bs-primary);
+}
 </style>

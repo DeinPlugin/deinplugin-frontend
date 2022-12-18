@@ -12,12 +12,16 @@ import './assets/app.scss'
 import Home from './pages/HomePage.vue'
 import Storage from './pages/StoragePage.vue'
 import Item from './pages/ItemPage.vue'
+import Submission from './pages/SubmissionPage.vue'
+import Community from './pages/CommunityPage.vue'
 import NotFound from './pages/NotFoundPage.vue'
 
 const routes = [
     { path: '/', name: 'Home', component: Home },
     { path: '/storage', name: 'Storage', component: Storage },
     { path: '/storage/:id', name: 'Item', component: Item},
+    { path: '/submission', name: 'Einreichen', component: Submission },
+    { path: '/community', name: 'Community', component: Community },
     { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ]
 
