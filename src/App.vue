@@ -8,6 +8,9 @@
 
 <script setup>
 import NavBar from './NavBar.vue'
+import {ref} from "vue";
+
+const discordJoinUrl = ref('https://discord.gg/')
 </script>
 
 <style scoped>

@@ -1,5 +1,5 @@
 # Other excluded files
-.env
+*.env
 
 # Logs
 logs
