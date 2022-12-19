@@ -1,10 +1,22 @@
 @import './base.css';
 
+h1, h2, h3 {
+    font-family: "Outfit ExtraBold", sans-serif !important;
+}
+
 pre {
     white-space: pre-wrap;
     overflow-x: auto;
+    background-color: #1E3139;
 }
 
-h1, h2, h3 {
-    font-family: "Outfit ExtraBold", sans-serif !important;
+pre code {
+    margin: 0;
+    padding: 0;
+}
+
+code {
+    background-color: #1E3139;
+    padding: 2px 4px;
+    margin: 0px 2px;
 }

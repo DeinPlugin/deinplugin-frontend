@@ -20,7 +20,7 @@
   Gro&szlig;br&ouml;sern 4<br />
   02627 Radibor</p>
 
-  <p>Telefon: &#91;Telefonnummer der verantwortlichen Stelle&#93;<br />
+  <p>;<br />
     E-Mail: info@deinplugin.net</p>
   <p>Verantwortliche Stelle ist die nat&uuml;rliche oder juristische Person, die allein oder gemeinsam mit anderen &uuml;ber die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten (z.&nbsp;B. Namen, E-Mail-Adressen o. &Auml;.) entscheidet.</p>
 

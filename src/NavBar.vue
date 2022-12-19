@@ -28,6 +28,7 @@
 #main-item {
   font-weight: bold;
   color: var(--bs-primary);
+  padding-right: 150px;
 }
 
 .nav-item {

@@ -6,13 +6,16 @@ $font-family-base: Outfit;
 $body-bg: #122027;
 $body-color: #FFF;
 
-
-
 $navbar-light-brand-color: #0B1317;
 $nav-link-hover-color: $secondary;
 $navbar-light-color: #FFF;
 $navbar-light-hover-color: $secondary;
 
 $card-bg: #1E3139;
+
+$modal-content-bg: #1E3139;
+$modal-content-color: #FFF;
+
+$code-color: $secondary;
 
 @import 'node_modules/bootstrap/scss/bootstrap.scss';

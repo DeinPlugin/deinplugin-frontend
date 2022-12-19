@@ -3,13 +3,13 @@
     <h1>Die DeinPlugin-Community</h1>
 
     <b-row class="my-5 mx-auto justify-content-center">
-      <HoverCard title="Twitter" img-url="../static/twitter.svg" :on-click="openTwitter">
+      <HoverCard title="Twitter" img-url="/static/twitter_outline.jpg" :on-click="openTwitter">
         Erhalte immer die aktuellen Neuigkeiten zur Plattform und nimm an exklusiven Events wie Verlosungen teil.
       </HoverCard>
-      <HoverCard title="Donation" img-url="../static/donation.svg" :on-click="openDonation">
+      <HoverCard title="Donation" img-url="/static/donation.svg" :on-click="openDonation">
         Unterstütze die Entwicklung- und Unterhaltungskosten der Plattform mit einer finanziellen Spende.
       </HoverCard>
-      <HoverCard title="Discord" img-url="../static/discord.svg" :on-click="openDiscord">
+      <HoverCard title="Discord" img-url="/static/discord_outline.png" :on-click="openDiscord">
         Vernetze dich mit einer wachsenden Community aus Entwicklern und Serverbesitzern oder gib und Feedback.
       </HoverCard>
     </b-row>
@@ -26,7 +26,7 @@
       </ul>
     </b-container>
 
-    <HoverCard title="Öffentliche Roadmap" img-url="../static/roadmap.png" class="mx-auto" :on-click="openRoadmap">
+    <HoverCard title="Öffentliche Roadmap" img-url="../static/roadmap_outline.png" class="mx-auto" :on-click="openRoadmap">
       Eine Gesamtübersicht für die nächsten Schritte ist auf unserer <b>öffentlichen Roadmap</b> sichtbar.
     </HoverCard>
   </div>

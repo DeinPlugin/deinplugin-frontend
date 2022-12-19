@@ -2,7 +2,7 @@
   <div v-if="item" id="item-page">
     <b-row>
       <b-col xl="10" md="12">
-        <b-tabs content-class="mt-3" justified>
+        <b-tabs content-class="mt-3" justified id="tabs" active-nav-item-class="font-weight-bold text-primary font-weight-bold">
           <b-tab title="Überblick" title-item-class="d-xl-none">
             <ItemSummary :item="item" />
           </b-tab>
@@ -70,18 +70,18 @@
       </b-col>
 
       <b-col xl="2" md="0">
-        <ItemSummary :item="item" class="d-none d-xl-block side-summary"/>
+        <ItemSummary :item="item" class="d-none d-xl-block side-summary" @download="openModal"/>
       </b-col>
-
     </b-row>
   </div>
 </template>
 
 <script setup>
-import {ref} from "vue";
-import {useRoute} from "vue-router";
-import MarkdownDisplay from "@/components/MarkdownDisplay.vue";
-import ItemSummary from "@/components/ItemSummary.vue";
+import {ref} from "vue"
+import {useRoute} from "vue-router"
+import MarkdownDisplay from "@/components/MarkdownDisplay.vue"
+import ItemSummary from "@/components/ItemSummary.vue"
+import DownloadModal from "@/components/DownloadModal.vue"
 
 const item = ref(null)
 const route = useRoute()
@@ -124,4 +124,5 @@ h1 {
   padding: 0.5rem 0.75rem;
   border: 2px solid var(--bs-primary);
 }
+
 </style>

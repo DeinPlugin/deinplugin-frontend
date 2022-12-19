@@ -47,10 +47,6 @@ defineProps({
   transition: 0.3s;
 }
 
-.itemcard:hover {
-  scale: 1.005;
-}
-
 .itemcard:hover h1 {
   color: var(--bs-primary);
   transition: 0.3s;
@@ -63,6 +59,8 @@ h1 {
 img {
   width: 100%;
 }
+
+
 
 .card-text p {
   font-size: 11pt;
