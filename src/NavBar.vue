@@ -1,17 +1,35 @@
 <template>
-  <b-navbar variant="dark">
-    <b-nav-item href="/">DeinPlugin</b-nav-item>
+  <div id="navbar">
+    <b-navbar toggleable="lg" type="dark" class="px-5">
+      <b-navbar-brand href="/" id="main-item" class="mx-2">DeinPlugin</b-navbar-brand>
 
-    <b-nav-item href="/storage">Plugins</b-nav-item>
-    <b-nav-item href="/community">Community</b-nav-item>
-    <b-nav-item href="/submission">Einreichen</b-nav-item>
-  </b-navbar>
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav>
+          <b-nav-item href="/storage" class="mx-3">Plugins</b-nav-item>
+          <b-nav-item href="/submission" class="mx-3">Einreichen</b-nav-item>
+          <b-nav-item href="/community" class="mx-3">Community</b-nav-item>
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+  </div>
 </template>
 
 <script setup>
 </script>
 
 <style scoped>
+#navbar {
+  background-color: #0B1317;
+  padding: 0.5rem 0;
+}
+
+#main-item {
+  font-weight: bold;
+  color: var(--bs-primary);
+}
+
 .nav-item {
   list-style-type: none;
 }

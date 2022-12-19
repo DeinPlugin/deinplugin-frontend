@@ -13,10 +13,10 @@
           <h1>{{item.names[0].value}}</h1>
           <p class="introduction">{{ item.introductions[0].value }}</p>
 
-          <colored-info :color="item.type !== 'lib' ? '#389bfb' : '#4583d1'">{{ item.type.toUpperCase() }}
+          <colored-info :color="item.type !== 'lib' ? 'var(--bs-primary)' : 'var(--bs-primary)'">{{ item.type.toUpperCase() }}
           </colored-info>
-          <colored-info color="#86b1f2">{{ item.category.toUpperCase() }}</colored-info>
-          <colored-info v-if="item.supportedPlatforms" v-for="platform in item.supportedPlatforms" color="#848dd8">
+          <colored-info color="var(--bs-secondary)">{{ item.category.toUpperCase() }}</colored-info>
+          <colored-info v-if="item.supportedPlatforms" v-for="platform in item.supportedPlatforms" color="#FB917B">
             {{ platform.toUpperCase() }}
           </colored-info>
 
@@ -49,6 +49,11 @@ defineProps({
 
 .itemcard:hover {
   scale: 1.005;
+}
+
+.itemcard:hover h1 {
+  color: var(--bs-primary);
+  transition: 0.3s;
 }
 
 h1 {

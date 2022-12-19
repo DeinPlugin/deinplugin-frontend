@@ -1,5 +1,5 @@
 <template>
-  <b-col xl="3" sm="8" class="hover-card mx-4 my-3" @click="() => console.log('HEY')">
+  <b-col xl="3" sm="8" class="hover-card mx-4 my-3" @click="onClick">
     <b-row>
       <b-col md="4">
         <img :src="imgUrl">
@@ -27,10 +27,17 @@ defineProps({
   background-color: #1E3139;
   padding: 1.7rem 2.7rem;
   transition: 0.5s;
+  color: white;
+  cursor: pointer;
 }
 
 .hover-card:hover {
   scale: 1.05;
+}
+
+.hover-card:hover h1 {
+  color: var(--bs-primary);
+  transition: 0.5s;
 }
 
 .hover-card h1 {

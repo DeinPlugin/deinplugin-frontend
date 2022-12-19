@@ -14,6 +14,8 @@ import Storage from './pages/StoragePage.vue'
 import Item from './pages/ItemPage.vue'
 import Submission from './pages/SubmissionPage.vue'
 import Community from './pages/CommunityPage.vue'
+import Imprint from './pages/ImprintPage.vue'
+import Policy from './pages/PrivacyPolicyPage.vue'
 import NotFound from './pages/NotFoundPage.vue'
 
 const routes = [
@@ -22,6 +24,9 @@ const routes = [
     { path: '/storage/:id', name: 'Item', component: Item},
     { path: '/submission', name: 'Einreichen', component: Submission },
     { path: '/community', name: 'Community', component: Community },
+    { path: '/imprint', name: 'Impressum', component: Imprint },
+    { path: '/policy', name: 'Datenschutzerklärung', component: Policy
+    },
     { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ]
 
@@ -37,5 +42,6 @@ app.use(router)
 app.config.globalProperties.$discordJoinUrl = 'https://discord.gg/azG4wxrQWy'
 app.config.globalProperties.$donationUrl = 'https://www.buymeacoffee.com/deinplugin'
 app.config.globalProperties.$twitterUrl = 'https://twitter.com/deinpluginnet'
+app.config.globalProperties.$roadmapUrl = 'https://github.com/orgs/DeinPlugin/projects/1'
 
 app.mount('#app')

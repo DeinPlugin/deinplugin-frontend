@@ -3,13 +3,13 @@
     <h1>Die DeinPlugin-Community</h1>
 
     <b-row class="my-5 mx-auto justify-content-center">
-      <HoverCard title="Twitter" img-url="../static/twitter.svg" :a-href="$twitterUrl">
+      <HoverCard title="Twitter" img-url="../static/twitter.svg" :on-click="openTwitter">
         Erhalte immer die aktuellen Neuigkeiten zur Plattform und nimm an exklusiven Events wie Verlosungen teil.
       </HoverCard>
-      <HoverCard title="Donation" img-url="../static/donation.svg">
+      <HoverCard title="Donation" img-url="../static/donation.svg" :on-click="openDonation">
         Unterstütze die Entwicklung- und Unterhaltungskosten der Plattform mit einer finanziellen Spende.
       </HoverCard>
-      <HoverCard title="Discord" img-url="../static/discord.svg">
+      <HoverCard title="Discord" img-url="../static/discord.svg" :on-click="openDiscord">
         Vernetze dich mit einer wachsenden Community aus Entwicklern und Serverbesitzern oder gib und Feedback.
       </HoverCard>
     </b-row>
@@ -26,15 +26,31 @@
       </ul>
     </b-container>
 
-    <HoverCard title="Öffentliche Roadmap" img-url="../static/roadmap.png" class="mx-auto">
+    <HoverCard title="Öffentliche Roadmap" img-url="../static/roadmap.png" class="mx-auto" :on-click="openRoadmap">
       Eine Gesamtübersicht für die nächsten Schritte ist auf unserer <b>öffentlichen Roadmap</b> sichtbar.
     </HoverCard>
   </div>
 </template>
 
 <script setup>
-
 import HoverCard from "@/components/HoverCard.vue";
+
+// TODO: Use global constants
+function openTwitter() {
+  window.open('https://twitter.com/deinpluginnet', '_blank')
+}
+
+function openDonation() {
+  window.open('https://www.buymeacoffee.com/deinplugin', '_blank')
+}
+
+function openDiscord() {
+  window.open('https://discord.gg/azG4wxrQWy', '_blank')
+}
+
+function openRoadmap() {
+  window.open('https://github.com/orgs/DeinPlugin/projects/1', '_blank')
+}
 </script>
 
 <style scoped>

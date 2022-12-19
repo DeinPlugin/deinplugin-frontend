@@ -13,10 +13,10 @@
 
 
     <b-row class="justify-content-center my-5 mx-4">
-      <HoverCard title="Owner" img-url="../static/owner.svg">
+      <HoverCard title="Owner" img-url="../static/owner.svg" :on-click="openPlugins">
         Lade dir jetzt die Plugins herunter, die am besten zu deinem Server passen und begeistere deine Community!
       </HoverCard>
-      <HoverCard title="Developer" img-url="../static/developer.svg">
+      <HoverCard title="Developer" img-url="../static/developer.svg" :on-click="openSubmission">
         Reiche deine Plugins auf DeinPlugin ein! Die breite User-Basis hilft dir, Fehler zu finden und dein Plugin zu verbessern.
       </HoverCard>
     </b-row>
@@ -49,8 +49,15 @@
 </template>
 
 <script setup>
-
 import HoverCard from "@/components/HoverCard.vue";
+
+function openPlugins() {
+  window.open('/storage', '_self')
+}
+
+function openSubmission() {
+  window.open('/storage', '_self')
+}
 </script>
 
 <style scoped>
