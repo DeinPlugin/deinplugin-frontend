@@ -3,4 +3,4 @@ services:
   webserver:
     build: .
     ports:
-      - "5095:80"
+      - "80:80"
