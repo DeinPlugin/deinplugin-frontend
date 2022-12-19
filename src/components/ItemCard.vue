@@ -6,7 +6,7 @@
         <b-col md="2" class="my-auto">
           <img v-if="item.icon" :src="item.icon" alt="Image" class="rounded-0">
           <img v-else
-               :src="item.type === 'plugin' ? '../../static/plugin_default.png' : '../../static/lib_default.png'"
+               :src="item.type === 'plugin' ? '/img/plugin_default.png' : '/img/lib_default.png'"
                alt="Icon">
         </b-col>
         <b-col md="9">

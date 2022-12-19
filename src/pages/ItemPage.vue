@@ -64,7 +64,7 @@
               Du kannst Fragen und Vorschläge auch auf unserem <a :href="$discordJoinUrl" target="_blank">Discord-Server</a> loswerden.
             </p>
 
-            <img src="../../static/issue_01.png" class="mw-100">
+            <img src="/img/issue_01.png" class="mw-100">
           </b-tab>
         </b-tabs>
       </b-col>

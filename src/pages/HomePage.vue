@@ -6,17 +6,17 @@
           <h1 class="mx-5">Die Plattform <br/>für <span class="emphasize">freie Plugins</span>.</h1>
         </b-col>
         <b-col xl="6" md="10">
-          <b-img src="static/icon_shadow.svg" fluid alt="Logo"></b-img>
+          <b-img src="/img/icon_shadow.svg" fluid alt="Logo"></b-img>
         </b-col>
       </b-row>
     </div>
 
 
     <b-row class="justify-content-center my-5 mx-4">
-      <HoverCard title="Owner" img-url="../static/owner.svg" :on-click="openPlugins">
+      <HoverCard title="Owner" img-url="/img/owner.svg" :on-click="openPlugins">
         Lade dir jetzt die Plugins herunter, die am besten zu deinem Server passen und begeistere deine Community!
       </HoverCard>
-      <HoverCard title="Developer" img-url="../static/developer.svg" :on-click="openSubmission">
+      <HoverCard title="Developer" img-url="/img/developer.svg" :on-click="openSubmission">
         Reiche deine Plugins auf DeinPlugin ein! Die breite User-Basis hilft dir, Fehler zu finden und dein Plugin zu verbessern.
       </HoverCard>
     </b-row>
@@ -28,13 +28,13 @@
         <b-col xl="3" class="my-3">
           <a :href="$discordJoinUrl" target="_blank">
             <h1>Discord</h1>
-            <img src="static/discord.svg">
+            <img src="/img/discord.svg">
           </a>
         </b-col>
         <b-col xl="3" class="my-3">
           <a :href="$twitterUrl" target="_blank">
             <h1>Twitter</h1>
-            <img src="static/twitter.svg">
+            <img src="/img/twitter.svg">
           </a>
         </b-col>
       </b-row>
@@ -70,7 +70,7 @@ function openSubmission() {
 }
 
 #top {
-  background-image: url("../../static/landing_background.svg");
+  background-image: url("/public/img/landing_background.svg");
   background-size: 1200px;
   background-position-y: -220px;
 }
