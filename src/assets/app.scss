@@ -1,11 +1,14 @@
-$primary: #00D0FF;
-$secondary: #314264;
+$primary: #FB917B;
+$secondary: #E07D6C;
 
-$body-bg: #111;
+$font-family-base: Outfit;
+
+$body-bg: #122027;
 $body-color: #FFF;
-$navbar-light-brand-color: #FFF;
+
+$navbar-light-brand-color: #0B1317;
 $nav-link-hover-color: $secondary;
 
-$card-bg: #333;
+$card-bg: #1E3139;
 
 @import 'node_modules/bootstrap/scss/bootstrap.scss';

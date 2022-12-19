@@ -1,5 +1,5 @@
 <template>
-  <b-row v-if="items">
+  <b-row v-if="items" id="items">
     <b-col v-for="item in items" lg="6" md="12" class="align-self-stretch my-2">
       <ItemCard :item="item"></ItemCard>
     </b-col>
@@ -28,4 +28,7 @@ fetchItems()
 </script>
 
 <style scoped>
+#items {
+  padding: 1rem 4rem;
+}
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="item">
+  <div v-if="item" id="item-page">
     <b-row>
       <b-col xl="10" md="12">
         <b-tabs content-class="mt-3" justified>
@@ -99,6 +99,10 @@ fetchItem()
 </script>
 
 <style scoped>
+#item-page {
+  padding: 1rem 5rem;
+}
+
 h1 {
   border-top: 1pt solid #444;
   margin-top: 4rem;
@@ -116,6 +120,7 @@ h1 {
 }
 
 .side-summary {
+  margin-left: 2.5rem;
   padding: 0.5rem 0.75rem;
   border: 2px solid var(--bs-primary);
 }

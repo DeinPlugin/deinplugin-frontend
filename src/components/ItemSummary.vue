@@ -11,7 +11,7 @@
       <a v-for="author in item.authors" :href="`https://github.com/${author}`" target="_blank">{{author}}</a>
     </p>
     <p><b>Repository:</b> <a :href="item.github_url" target="_blank">GitHub</a></p>
-    <p>
+    <p class="download">
       <b>Download: </b>
       <a v-if="item.download[0]" v-for="download in item.download" :href="download.download_url" target="_blank">{{download.name}}</a>
       <a v-else :href="`${item.github_url}/releases`" target="_blank">GitHub</a>
@@ -31,16 +31,20 @@ function capitalizeFirstLetter(string) {
 </script>
 
 <style scoped>
-  .summary {
-    width: fit-content;
-  }
+.summary {
+  width: fit-content;
+}
 
-  h1 {
-    font-size: 20pt;
-  }
+h1 {
+  font-size: 20pt;
+}
 
-  .subtitle {
-    font-size: 12pt;
-    color: #AAA;
-  }
+.subtitle {
+  font-size: 12pt;
+  color: #AAA;
+}
+
+.download {
+  padding-top: 1.5rem;
+}
 </style>

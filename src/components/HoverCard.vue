@@ -1,11 +1,14 @@
 <template>
-
-  <b-col xl="3" sm="12" class="hover-card mx-4" @click="() => console.log('HEY')">
-    <h1>{{ title }}</h1>
-    <b-img :src="imgUrl"></b-img>
-    <p>
-      <slot></slot>
-    </p>
+  <b-col xl="3" sm="8" class="hover-card mx-4 my-3" @click="() => console.log('HEY')">
+    <b-row>
+      <b-col md="4">
+        <img :src="imgUrl">
+      </b-col>
+      <b-col>
+        <h1>{{ title }}</h1>
+        <p><slot/></p>
+      </b-col>
+    </b-row>
   </b-col>
 </template>
 
@@ -20,14 +23,13 @@ defineProps({
 
 <style scoped>
 .hover-card {
-  text-align: center;
-  background-color: #2c3e50;
-  padding: 0.5rem;
+  text-align: left;
+  background-color: #1E3139;
+  padding: 1.7rem 2.7rem;
   transition: 0.5s;
 }
 
 .hover-card:hover {
-  background-color: #181818;
   scale: 1.05;
 }
 
@@ -36,11 +38,7 @@ defineProps({
 }
 
 .hover-card img {
-  height: 15vh;
-  margin: 1rem 0;
-}
-
-.hover-card p {
-
+  width: 85%;
+  max-height: 20vh;
 }
 </style>

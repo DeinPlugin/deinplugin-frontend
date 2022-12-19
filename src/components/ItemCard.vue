@@ -1,74 +1,65 @@
 <template>
 
   <router-link :to="`/storage/${item.uuid}`">
-    <b-card class="overflow-hidden h-100">
+    <div class="overflow-hidden h-100 itemcard">
       <b-row>
-        <b-col md="3" class="my-auto">
-          <b-card-img v-if="item.icon" :src="item.icon" alt="Image" class="rounded-0"></b-card-img>
-          <b-card-img v-else
-                      :src="item.type === 'plugin' ? '../../static/plugin_default.png' : '../../static/lib_default.png'"
-                      alt="Icon"></b-card-img>
+        <b-col md="2" class="my-auto">
+          <img v-if="item.icon" :src="item.icon" alt="Image" class="rounded-0">
+          <img v-else
+               :src="item.type === 'plugin' ? '../../static/plugin_default.png' : '../../static/lib_default.png'"
+               alt="Icon">
         </b-col>
         <b-col md="9">
-          <b-card-body :title="item.names[0].value">
-            <b-card-text>
-              <p class="introduction">{{ item.introductions[0].value }}</p>
-            </b-card-text>
+          <h1>{{item.names[0].value}}</h1>
+          <p class="introduction">{{ item.introductions[0].value }}</p>
 
-            <colored-info :color="item.type !== 'lib' ? '#00AFEB' : '#FF8800'">{{ item.type.toUpperCase() }}
-            </colored-info>
-            <colored-info color="#0F0">{{ item.category.toUpperCase() }}</colored-info>
-            <colored-info v-if="item.supportedPlatforms" v-for="platform in item.supportedPlatforms" color="#F00">
-              {{ platform.toUpperCase() }}
-            </colored-info>
+          <colored-info :color="item.type !== 'lib' ? '#389bfb' : '#4583d1'">{{ item.type.toUpperCase() }}
+          </colored-info>
+          <colored-info color="#86b1f2">{{ item.category.toUpperCase() }}</colored-info>
+          <colored-info v-if="item.supportedPlatforms" v-for="platform in item.supportedPlatforms" color="#848dd8">
+            {{ platform.toUpperCase() }}
+          </colored-info>
 
-            <p class="version">Version: {{ item.supportedGameVersions }}</p>
-          </b-card-body>
+          <p class="version">Version: {{ item.supportedGameVersions }}</p>
         </b-col>
       </b-row>
-    </b-card>
+    </div>
   </router-link>
 </template>
 
 <script setup>
-  import ColoredInfo from './ColoredInfo.vue'
+import ColoredInfo from './ColoredInfo.vue'
 
-  defineProps({
-    item: Object
-  })
+defineProps({
+  item: Object
+})
 </script>
 
 <style scoped>
-  * {
-    text-decoration: none;
-    color: #FFF;
-  }
+* {
+  text-decoration: none;
+  color: #FFF;
+}
 
-  .item-card {
-    padding: 1rem 0.5rem;
-    margin: 0.5rem;
-    background-color: #282828;
-  }
+.itemcard {
+  background-color: #1E3139;
+  padding: 1rem 2rem;
+  transition: 0.3s;
+}
 
-  .content {
-    display: inline-block;
-  }
+.itemcard:hover {
+  scale: 1.005;
+}
 
-  h1 {
-    font-size: 18pt;
-  }
+h1 {
+  font-size: 23pt;
+}
 
-  img {
-    display: inline-block;
-    height: 3rem;
-    margin-right: 0.5rem;
-  }
+img {
+  width: 100%;
+}
 
-  .card-text p {
-    font-size: 11pt;
-  }
-
-  p .version {
-    color: #888;
-  }
+.card-text p {
+  font-size: 11pt;
+}
 </style>

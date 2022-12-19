@@ -4,17 +4,33 @@
   <div id="route">
     <router-view></router-view>
   </div>
+
+  <Footer />
 </template>
 
 <script setup>
 import NavBar from './NavBar.vue'
-import {ref} from "vue";
-
-const discordJoinUrl = ref('https://discord.gg/')
+import Footer from "@/Footer.vue";
 </script>
 
 <style scoped>
 #route {
-  padding: 2rem;
+  min-height: 90vh;
+}
+
+@font-face {
+  font-family: "Outfit";
+  src: local("Outfit"),
+  url(./fonts/Outfit-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Outfit SemiBold";
+  src: local("Outfit SemiBold"),
+  url(./fonts/Outfit-SemiBold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Outfit ExtraBold";
+  src: local("Outfit ExtraBold"),
+  url(./fonts/Outfit-ExtraBold.ttf) format("truetype");
 }
 </style>

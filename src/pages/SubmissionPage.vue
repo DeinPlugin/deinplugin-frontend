@@ -1,64 +1,66 @@
 <template>
-  <h1 class="mb-5">Ein neues Plugin einreichen</h1>
-  <p v-if="success" class="text-success text-center">
-    Das Plugin wurde erfolgreich eingereicht.<br/>
-    Wir melden uns bei dir, sobald es etwas Neues zu deiner Einreichung gibt.<br/>
-    Vielen Dank für deine Unterstützung.
-  </p>
-  <b-col v-else xl="8" sm="10" class="mx-auto mb-5">
-    <b-form @submit="onSubmit">
-      <b-form-group
-          id="input-group-1"
-          label="E-Mail-Adresse:"
-          label-for="input-1"
-          description="Über die Angabe deiner Mailadresse benachrichtigen wir dich über den Status deiner Einreichung.">
-        <b-form-input
-            id="input-1"
-            v-model="form.email"
-            type="email"
-            placeholder="Enter email"
-        ></b-form-input>
-      </b-form-group>
-
-      <b-form-group id="input-group-2"
-                    label="GitHub-Repository URL"
-                    label-for="input-2"
-                    description="Es muss sich um ein Repository mit gültiger deinplugin.yaml-Datei handeln.">
-        <b-form-input
-            id="input-2"
-            v-model="form.github_url"
-            placeholder="GitHub-URL"
-            required
-        ></b-form-input>
-      </b-form-group>
-
-      <p v-if="error" class="text-danger">{{error}}</p>
-
-      <div v-if="isLoading">
-        <b-spinner variant="primary" label="Lade"></b-spinner>
-      </div>
-      <b-button v-else type="submit" variant="primary">Absenden</b-button>
-    </b-form>
-  </b-col>
-
-  <b-col xl="10" sm="10" class="mx-auto mb-5">
-    <p>
-      All unsere Einreichungen funktionieren im Moment über die Plattform <a href="https://github.com/" target="_blank">GitHub</a>.
-      GitHub ist eine Plattform, auf der alle Entwickler quelloffene Projekte teilen können.<br/>
-      In quelloffenen Projekten ist der Quellcode für jeden Außenstehenden einsehbar.
-      Außerdem können andere Entwickler das Projekt weiterentwickeln und somit den ursprünglichen Entwickler unterstützen.
+  <div id="submission">
+    <h1 class="mb-5">Ein neues Plugin einreichen</h1>
+    <p v-if="success" class="text-success text-center">
+      Das Plugin wurde erfolgreich eingereicht.<br/>
+      Wir melden uns bei dir, sobald es etwas Neues zu deiner Einreichung gibt.<br/>
+      Vielen Dank für deine Unterstützung.
     </p>
-    <p>
-      Das Einreichen eines Plugins ist bei uns nur für GitHub-Projekte möglich, die eine bestimmte Datei im Hauptverzeichnis beinhalten.
-      Die Datei muss den Namen <b>deinplugin.yaml</b> tragen und eine vorgegebene Form besitzen.
-      Die komplette Spezifikation der deinplugin.yaml-Datei findest du in einem von uns angelegten <a href="http://github.com" target="_blank">GitHub-Repository.</a>
-      Wenn du direkt einsteigen willst, kannst du aber auch die unten gezeigten Beispiele anschauen oder dich an der deinplugin.yaml-Datei bereits eingereichter Plugins orientieren.
-    </p>
-  </b-col>
+    <b-col v-else xl="8" sm="10" class="mx-auto mb-5">
+      <b-form @submit="onSubmit">
+        <b-form-group
+            id="input-group-1"
+            label="E-Mail-Adresse:"
+            label-for="input-1"
+            description="Über die Angabe deiner Mailadresse benachrichtigen wir dich über den Status deiner Einreichung.">
+          <b-form-input
+              id="input-1"
+              v-model="form.email"
+              type="email"
+              placeholder="E-Mail-Adresse"
+          ></b-form-input>
+        </b-form-group>
 
-  <Expandable title="Aufbau der deinplugin.yaml-Datei" id="parts">
-    <h2>SpecsObject</h2>
-    <MarkdownDisplay md="
+        <b-form-group id="input-group-2"
+                      label="GitHub-Repository URL"
+                      label-for="input-2"
+                      description="Es muss sich um ein Repository mit gültiger deinplugin.yaml-Datei handeln.">
+          <b-form-input
+              id="input-2"
+              v-model="form.github_url"
+              placeholder="GitHub-URL"
+              required
+          ></b-form-input>
+        </b-form-group>
+
+        <p v-if="error" class="text-danger">{{error}}</p>
+
+        <div v-if="isLoading">
+          <b-spinner variant="primary" label="Lade"></b-spinner>
+        </div>
+        <b-button v-else type="submit" variant="primary">Absenden</b-button>
+      </b-form>
+    </b-col>
+
+    <b-col xl="8" sm="10" class="mx-auto mb-5">
+      <p>
+        All unsere Einreichungen funktionieren im Moment über die Plattform <a href="https://github.com/" target="_blank">GitHub</a>.
+        GitHub ist eine Plattform, auf der alle Entwickler quelloffene Projekte teilen können.<br/>
+        In quelloffenen Projekten ist der Quellcode für jeden Außenstehenden einsehbar.
+        Außerdem können andere Entwickler das Projekt weiterentwickeln und somit den ursprünglichen Entwickler unterstützen.
+      </p>
+      <p>
+        Das Einreichen eines Plugins ist bei uns nur für GitHub-Projekte möglich, die eine bestimmte Datei im Hauptverzeichnis beinhalten.
+        Die Datei muss den Namen <b>deinplugin.yaml</b> tragen und eine vorgegebene Form besitzen.
+        Die komplette Spezifikation der deinplugin.yaml-Datei findest du in einem von uns angelegten <a href="http://github.com" target="_blank">GitHub-Repository.</a>
+        Wenn du direkt einsteigen willst, kannst du aber auch die unten gezeigten Beispiele anschauen oder dich an der deinplugin.yaml-Datei bereits eingereichter Plugins orientieren.
+      </p>
+    </b-col>
+
+    <b-col xl="8" sm="10" class="mx-auto mb-5">
+      <Expandable title="Aufbau der deinplugin.yaml-Datei" id="parts">
+        <h2>SpecsObject</h2>
+        <MarkdownDisplay md="
 ```yaml
 specVersion*: int
 type*: String
@@ -82,28 +84,28 @@ videoSources: [String]
 ```
 " />
 
-    <h2>LanguageObject</h2>
-    <p>
-      <b>Info:</b> Wird kein separates LanguageObject angelegt (zB. mittels <code>name: Test</code>), so wird automatisch ein
-      LanguageObject mit dem key <code>null</code> generiert.
-    </p>
-    <MarkdownDisplay md="
+        <h2>LanguageObject</h2>
+        <p>
+          <b>Info:</b> Wird kein separates LanguageObject angelegt (zB. mittels <code>name: Test</code>), so wird automatisch ein
+          LanguageObject mit dem key <code>null</code> generiert.
+        </p>
+        <MarkdownDisplay md="
 ```yaml
 key: String
 text* String
 ```
 " />
 
-    <h2>DownloadObject</h2>
-    <MarkdownDisplay md="
+        <h2>DownloadObject</h2>
+        <MarkdownDisplay md="
 ```yaml
 url*: String
 name*: String
 ```
 " />
 
-    <h2>DependencyObject</h2>
-    <MarkdownDisplay md="
+        <h2>DependencyObject</h2>
+        <MarkdownDisplay md="
 ```yaml
 url*: String
 name*: String
@@ -111,32 +113,32 @@ versionRange: String (Semantic Version)
 required*: Boolean
 ```
 " />
-  </Expandable>
+      </Expandable>
 
-  <Expandable title="Bedeutung der Felder aus der Metadatei" id="fields">
-    <p>
-      <code>specVersion</code>: Version der Spezifikation (aktuelle Version: 1)<br/>
-      <code>type</code>: Art des angebotenen Downloads (aktuell <code>plugin</code> oder <code>lib</code>)<br/>
-      <code>name</code>: Anzeigename des Downloads<br/>
-      <code>authors</code>: Autoren des Downloads<br/>
-      <code>download</code>: Externer Download, der nicht unter GitHub-Releases bereitgestellt wird<br/>
-      <code>supportedPlatforms</code>: Liste aller nterstützten Plattformen (aktuell <code>spigot</code>, <code>paper</code> und/oder <code>sponge</code>)<br/>
-      <code>supportedGameVersions</code>: Unterstütze Minecraft-Versionen<br/>
-      <code>category</code>: Kategorie des Downloads (aktuell: <code>adminTool</code>, <code>devTool</code>, <code>chat</code>, <code>economy</code>, <code>game</code>,
-        <code>protection</code>, <code>roleplay</code>, <code>worldManagement</code>, oder <code>misc</code>)<br/>
-      <code>dependencies</code>: Andere Bibliotheken, die für die reibungslose Nutzung des Downloads benötigt werden<br/>
-      <code>introduction</code>: Einleitungstext des Downlaods. Markdown-Format.<br/>
-      <code>description</code>: Beschreibungstext des Downloads. Markdown-Format.<br/>
-      <code>installation</code>: Installations-Guide des Downlaods. Markdown-Format.<br/>
-      <code>tags</code>: Tags zur besseren Einordnung des Downloads.<br/>
-      <code>images</code>: Bilder des Downloads.<br/>
-      <code>icon</code>:  Icon des Downloads.<br/>
-      <code>videoSources</code>: Videos zum Download.<br/>
-    </p>
-  </Expandable>
+      <Expandable title="Bedeutung der Felder aus der Metadatei" id="fields">
+        <p>
+          <code>specVersion</code>: Version der Spezifikation (aktuelle Version: 1)<br/>
+          <code>type</code>: Art des angebotenen Downloads (aktuell <code>plugin</code> oder <code>lib</code>)<br/>
+          <code>name</code>: Anzeigename des Downloads<br/>
+          <code>authors</code>: Autoren des Downloads<br/>
+          <code>download</code>: Externer Download, der nicht unter GitHub-Releases bereitgestellt wird<br/>
+          <code>supportedPlatforms</code>: Liste aller nterstützten Plattformen (aktuell <code>spigot</code>, <code>paper</code> und/oder <code>sponge</code>)<br/>
+          <code>supportedGameVersions</code>: Unterstütze Minecraft-Versionen<br/>
+          <code>category</code>: Kategorie des Downloads (aktuell: <code>adminTool</code>, <code>devTool</code>, <code>chat</code>, <code>economy</code>, <code>game</code>,
+          <code>protection</code>, <code>roleplay</code>, <code>worldManagement</code>, oder <code>misc</code>)<br/>
+          <code>dependencies</code>: Andere Bibliotheken, die für die reibungslose Nutzung des Downloads benötigt werden<br/>
+          <code>introduction</code>: Einleitungstext des Downlaods. Markdown-Format.<br/>
+          <code>description</code>: Beschreibungstext des Downloads. Markdown-Format.<br/>
+          <code>installation</code>: Installations-Guide des Downlaods. Markdown-Format.<br/>
+          <code>tags</code>: Tags zur besseren Einordnung des Downloads.<br/>
+          <code>images</code>: Bilder des Downloads.<br/>
+          <code>icon</code>:  Icon des Downloads.<br/>
+          <code>videoSources</code>: Videos zum Download.<br/>
+        </p>
+      </Expandable>
 
-  <Expandable title="Beispiel:  Minimale deinplugin.yaml-Datei" id="min-example">
-    <MarkdownDisplay md="
+      <Expandable title="Beispiel:  Minimale deinplugin.yaml-Datei" id="min-example">
+        <MarkdownDisplay md="
 ```yaml
 specVersion: 1
 type: plugin
@@ -154,10 +156,10 @@ description: |
       Zur Nutzung des Plugins muss lediglich `/helloworld` im Chat eingegeben werden.
 ```
 " />
-  </Expandable>
+      </Expandable>
 
-  <Expandable title="Beispiel:  Vollständige deinplugin.yaml-Datei" id="max-example">
-    <MarkdownDisplay md="
+      <Expandable title="Beispiel:  Vollständige deinplugin.yaml-Datei" id="max-example">
+        <MarkdownDisplay md="
 ```yaml
 specVersion: 1
 type: plugin
@@ -217,7 +219,9 @@ videoSources:
   - https://www.youtube.com/watch?v=dQw4w9WgXcQ
 ```
 " />
-  </Expandable>
+      </Expandable>
+    </b-col>
+  </div>
 </template>
 
 <script setup>
@@ -262,7 +266,12 @@ function onSubmit(event) {
 </script>
 
 <style scoped>
+#submission {
+  padding: 1rem 3rem;
+}
+
 h1 {
   text-align: center;
+  color: var(--bs-primary);
 }
 </style>

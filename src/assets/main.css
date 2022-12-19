@@ -1,5 +1,10 @@
 @import './base.css';
 
-#app {
-  /*padding: 3rem;*/
+pre {
+    white-space: pre-wrap;
+    overflow-x: auto;
+}
+
+h1, h2, h3 {
+    font-family: "Outfit ExtraBold", sans-serif !important;
 }
