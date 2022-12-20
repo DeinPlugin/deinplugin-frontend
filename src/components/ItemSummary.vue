@@ -11,29 +11,20 @@
       <a v-for="author in item.authors" :href="`https://github.com/${author}`" target="_blank">{{author}}</a>
     </p>
     <p><b>Repository:</b> <a :href="item.github_url" target="_blank">GitHub</a></p>
-    <p class="download">
 
-      <b-button  v-b-modal.download-modal class="text-white">Download</b-button>
-      <DownloadModal title="Download" :item="item" />
-    </p>
+    <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      Download
+    </button>
   </div>
 </template>
 
 <script setup>
-import DownloadModal from "@/components/DownloadModal.vue";
-
 defineProps({
   item: Object
 })
 
-const emit = defineEmits(['download'])
-
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
-}
-
-function clickDownload() {
-  emit('download')
 }
 </script>
 

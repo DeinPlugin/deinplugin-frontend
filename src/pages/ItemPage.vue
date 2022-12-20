@@ -1,4 +1,6 @@
 <template>
+  <DownloadModal title="Download" :item="item" />
+
   <div v-if="item" id="item-page">
     <b-row>
       <b-col xl="10" md="12">
