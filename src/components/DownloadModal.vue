@@ -15,8 +15,8 @@
     </div>
 
     <div>
-      <b-button v-if="item.download[0]" v-for="download in item.download" :href="download.download_url" target="_blank">Download - {{download.name}}</b-button>
-      <b-button v-else :href="`${item.github_url}/releases`" target="_blank">Download - GitHub</b-button>
+      <b-button v-if="item.download[0]" v-for="download in item.download" :href="download.download_url" target="_blank" class="text-white">Download - {{download.name}}</b-button>
+      <b-button v-else :href="`${item.github_url}/releases`" target="_blank" class="text-white">Download - GitHub</b-button>
     </div>
   </b-modal>
 </template>

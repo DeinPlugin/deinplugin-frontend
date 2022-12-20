@@ -1,9 +1,10 @@
 <template>
-  <div class="my-5">
-    <b-button v-b-toggle="`collapse-${id}`" variant="primary">{{title}}</b-button>
-    <b-collapse :id="`collapse-${id}`" class="mt-2">
-        <slot />
-    </b-collapse>
+  <div class="my-3">
+    <b-accordion>
+      <b-accordion-item :title="title">
+        <slot/>
+      </b-accordion-item>
+    </b-accordion>
   </div>
 </template>
 

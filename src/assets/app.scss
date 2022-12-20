@@ -16,6 +16,10 @@ $card-bg: #1E3139;
 $modal-content-bg: #1E3139;
 $modal-content-color: #FFF;
 
+$accordion-button-bg: $primary;
+$accordion-button-active-bg: $secondary;
+$accordion-button-active-color: #FFF;
+
 $code-color: $secondary;
 
 @import 'node_modules/bootstrap/scss/bootstrap.scss';

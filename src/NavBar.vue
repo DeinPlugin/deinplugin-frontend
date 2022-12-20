@@ -1,10 +1,15 @@
 <template>
   <div id="navbar">
-    <b-navbar toggleable="lg" type="dark" class="px-5">
-      <a href="/"><img src="/img/icon_shadow.svg"></a>
-      <b-navbar-brand href="/" id="main-item" class="mx-2"><span class="text-white">Dein</span>Plugin</b-navbar-brand>
+    <b-navbar toggleable="lg" type="dark">
 
-      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+      <b-navbar-brand id="main-item">
+        <a href="/">
+          <span><img src="/img/icon_shadow.svg"></span>
+          <span class="text-white">Dein</span>Plugin
+        </a>
+
+        <b-navbar-toggle target="nav-collapse" id="toggle"></b-navbar-toggle>
+      </b-navbar-brand>
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav>
@@ -21,6 +26,10 @@
 </script>
 
 <style scoped>
+* a {
+  text-decoration: none;
+}
+
 #navbar {
   background-color: #0B1317;
   padding: 0.5rem 0;
@@ -38,5 +47,17 @@
 
 img {
   height: 50px;
+  margin-left: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  img {
+    display: inline-block;
+  }
+
+  #toggle {
+    position: absolute;
+    right: 0px;
+  }
 }
 </style>

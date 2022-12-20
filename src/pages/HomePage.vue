@@ -11,7 +11,6 @@
       </b-row>
     </div>
 
-
     <b-row class="justify-content-center my-5 mx-4">
       <HoverCard title="Owner" img-url="/img/owner.svg" :on-click="openPlugins">
         Lade dir jetzt die Plugins herunter, die am besten zu deinem Server passen und begeistere deine Community!
@@ -25,13 +24,13 @@
       <h1>Folge uns!</h1>
       <p>Joine unserem Discord-Server, folge uns auf Twitter oder schau dir unsere nächsten Pläne für kommende Updates an!</p>
       <b-row class="justify-content-center">
-        <b-col xl="3" class="my-3">
+        <b-col xl="3" class="my-3 social-link">
           <a :href="$discordJoinUrl" target="_blank">
             <h1>Discord</h1>
             <img src="/img/discord.svg">
           </a>
         </b-col>
-        <b-col xl="3" class="my-3">
+        <b-col xl="3" class="my-3 social-link">
           <a :href="$twitterUrl" target="_blank">
             <h1>Twitter</h1>
             <img src="/img/twitter.svg">
@@ -41,9 +40,9 @@
     </div>
 
     <div id="disclaimer" class="mx-5">
-      <h1 class="mt-5">Dies ist der erste Prototyp der neuen <span class="text-white">Dein</span>Plugin-Plattform.</h1>
+      <h1 class="mt-4">Dies ist der erste Prototyp der neuen <span class="text-white">Dein</span>Plugin-Plattform.</h1>
       <p>Es kann verstärkt zu Fehlern kommen. Bitte zögere uns nicht, diese auf Discord zu melden. Auch über sonstiges Feedback sind wir sehr dankbar.</p>
-      <p>Schau auch auf unserer Roadmap vorbei, um die nächsten geplanten Updates einzusehen</p>
+      <p class="mb-5">Schau auch auf unserer Roadmap vorbei, um die nächsten geplanten Updates einzusehen</p>
     </div>
   </div>
 </template>
@@ -65,14 +64,9 @@ function openSubmission() {
   text-align: center;
 }
 
-#landing-page {
-  /*padding: 1rem 4rem;*/
-}
-
 #top {
   background-image: url("/public/img/landing_background.svg");
-  background-size: 1200px;
-  background-position-y: -220px;
+  background-repeat: repeat;
 }
 
 #top h1 {
@@ -118,5 +112,19 @@ function openSubmission() {
 
 #disclaimer h1 {
   color: var(--bs-primary);
+}
+
+@media only screen and (max-width: 600px) {
+  h1 {
+    font-size: 20pt !important;
+  }
+
+  #top h1 {
+    font-size: 40pt !important;
+  }
+
+  .social-link h1, .social-link img {
+    display: inline-block;
+  }
 }
 </style>

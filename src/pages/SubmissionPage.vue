@@ -1,11 +1,15 @@
 <template>
   <div id="submission">
-    <h1 class="mb-5">Ein neues Plugin einreichen</h1>
-    <p v-if="success" class="text-success text-center">
-      Das Plugin wurde erfolgreich eingereicht.<br/>
-      Wir melden uns bei dir, sobald es etwas Neues zu deiner Einreichung gibt.<br/>
-      Vielen Dank für deine Unterstützung.
-    </p>
+    <h1 class="my-5">Ein neues Plugin einreichen</h1>
+    <div v-if="success" class="text-center my-4">
+      <p class="text-success">
+        Das Plugin wurde erfolgreich eingereicht.<br/>
+        Wir melden uns bei dir, sobald es etwas Neues zu deiner Einreichung gibt.<br/>
+        Vielen Dank für deine Unterstützung.
+      </p>
+      <b-button @click="reset" class="text-white my-4">Noch ein Plugin einreichen</b-button>
+    </div>
+
     <b-col v-else xl="8" sm="10" class="mx-auto mb-5">
       <b-form @submit="onSubmit">
         <b-form-group
@@ -38,7 +42,7 @@
         <div v-if="isLoading">
           <b-spinner variant="primary" label="Lade"></b-spinner>
         </div>
-        <b-button v-else type="submit" variant="primary">Absenden</b-button>
+        <b-button v-else type="submit" variant="primary" class="text-white">Absenden</b-button>
       </b-form>
     </b-col>
 
@@ -56,6 +60,7 @@
         Wenn du direkt einsteigen willst, kannst du aber auch die unten gezeigten Beispiele anschauen oder dich an der deinplugin.yaml-Datei bereits eingereichter Plugins orientieren.
       </p>
     </b-col>
+
 
     <b-col xl="8" sm="10" class="mx-auto mb-5">
       <Expandable title="Aufbau der deinplugin.yaml-Datei" id="parts">
@@ -237,11 +242,14 @@ const isLoading = ref(false)
 const success = ref(false)
 const error = ref(null)
 
-function onSubmit(event) {
+function onSubmit() {
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({github_url: form.value.github_url})
+    body: JSON.stringify({
+      github_url: form.value.github_url.trim(),
+      mail: form.value.email.trim(),
+    })
   };
   isLoading.value = true
   error.value = null
@@ -251,7 +259,7 @@ function onSubmit(event) {
         isLoading.value = false
         if (!response.ok) {
           if (response.status === 400) error.value = 'Unter der URL wurde keine valide deinplugin-yaml Datei gefunden.'
-          if (response.status === 410) error.value = 'Dieses Repository wurde bereits eingereicht.'
+          if (response.status === 409) error.value = 'Dieses Repository wurde bereits eingereicht.'
           if (response.status === 500) error.value = 'Es ist ein unbekannter Fehler aufgetreten.'
           return
         }
@@ -262,6 +270,13 @@ function onSubmit(event) {
         isLoading.value = false
         error.value = 'Es ist ein unbekannter Fehler aufgetreten.'
       })
+}
+
+function reset() {
+  success.value = false
+  error.value = false
+  form.value.email = ''
+  form.value.github_url = ''
 }
 </script>
 

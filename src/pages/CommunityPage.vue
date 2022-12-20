@@ -1,8 +1,8 @@
 <template>
   <div id="community">
-    <h1>Die DeinPlugin-Community</h1>
+    <h1 class="my-5">Die DeinPlugin-Community</h1>
 
-    <b-row class="my-5 mx-auto justify-content-center">
+    <b-row class="my-5 mx-4 justify-content-center">
       <HoverCard title="Twitter" img-url="/img/twitter_outline.jpg" :on-click="openTwitter">
         Erhalte immer die aktuellen Neuigkeiten zur Plattform und nimm an exklusiven Events wie Verlosungen teil.
       </HoverCard>
@@ -26,9 +26,11 @@
       </ul>
     </b-container>
 
-    <HoverCard title="Öffentliche Roadmap" img-url="/img/roadmap_outline.png" class="mx-auto" :on-click="openRoadmap">
-      Eine Gesamtübersicht für die nächsten Schritte ist auf unserer <b>öffentlichen Roadmap</b> sichtbar.
-    </HoverCard>
+    <b-row class="justify-content-center mx-4">
+      <HoverCard title="Öffentliche Roadmap" img-url="/img/roadmap_outline.png" :on-click="openRoadmap">
+        Eine Gesamtübersicht für die nächsten Schritte ist auf unserer <b>öffentlichen Roadmap</b> sichtbar.
+      </HoverCard>
+    </b-row>
   </div>
 </template>
 
@@ -56,10 +58,6 @@ function openRoadmap() {
 <style scoped>
 * {
   text-align: center;
-}
-
-#community {
-  padding: 1rem 4rem;
 }
 
 ul {

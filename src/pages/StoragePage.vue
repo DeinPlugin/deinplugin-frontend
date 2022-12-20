@@ -5,7 +5,7 @@
     </b-col>
   </b-row>
 
-  <div v-else>
+  <div v-else class="d-flex justify-content-center my-5">
     <b-spinner variant="primary" label="Lade"></b-spinner>
   </div>
 </template>
