@@ -1,7 +1,8 @@
 <template>
   <div id="navbar">
     <b-navbar toggleable="lg" type="dark" class="px-5">
-      <b-navbar-brand href="/" id="main-item" class="mx-2">DeinPlugin</b-navbar-brand>
+      <a href="/"><img src="/img/icon_shadow.svg"></a>
+      <b-navbar-brand href="/" id="main-item" class="mx-2"><span class="text-white">Dein</span>Plugin</b-navbar-brand>
 
       <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -33,5 +34,9 @@
 
 .nav-item {
   list-style-type: none;
+}
+
+img {
+  height: 50px;
 }
 </style>

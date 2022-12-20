@@ -70,7 +70,7 @@
       </b-col>
 
       <b-col xl="2" md="0">
-        <ItemSummary :item="item" class="d-none d-xl-block side-summary" @download="openModal"/>
+        <ItemSummary :item="item" class="d-none d-xl-block side-summary" />
       </b-col>
     </b-row>
   </div>

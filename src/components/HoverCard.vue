@@ -2,7 +2,7 @@
   <b-col xl="3" sm="8" class="hover-card mx-4 my-3" @click="onClick">
     <b-row>
       <b-col md="4">
-        <img :src="imgUrl">
+        <img :src="imgUrl" class="my-3">
       </b-col>
       <b-col>
         <h1>{{ title }}</h1>
@@ -45,7 +45,13 @@ defineProps({
 }
 
 .hover-card img {
-  width: 85%;
-  max-height: 20vh;
+  max-width: 100%;
 }
+
+@media only screen and (max-width: 600px) {
+  .hover-card img {
+    max-height: 15vh;
+  }
+}
+
 </style>

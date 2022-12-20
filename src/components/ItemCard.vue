@@ -3,7 +3,7 @@
   <router-link :to="`/storage/${item.uuid}`">
     <div class="overflow-hidden h-100 itemcard">
       <b-row>
-        <b-col md="2" class="my-auto">
+        <b-col md="2" class="my-3">
           <img v-if="item.icon" :src="item.icon" alt="Image" class="rounded-0">
           <img v-else
                :src="item.type === 'plugin' ? '/img/plugin_default.png' : '/img/lib_default.png'"
@@ -57,10 +57,9 @@ h1 {
 }
 
 img {
-  width: 100%;
+  max-width: 100%;
+  max-height: 15vh;
 }
-
-
 
 .card-text p {
   font-size: 11pt;

@@ -41,7 +41,7 @@
     </div>
 
     <div id="disclaimer" class="mx-5">
-      <h1 class="mt-5">Dies ist der erste Prototyp der neuen DeinPlugin-Plattform.</h1>
+      <h1 class="mt-5">Dies ist der erste Prototyp der neuen <span class="text-white">Dein</span>Plugin-Plattform.</h1>
       <p>Es kann verstärkt zu Fehlern kommen. Bitte zögere uns nicht, diese auf Discord zu melden. Auch über sonstiges Feedback sind wir sehr dankbar.</p>
       <p>Schau auch auf unserer Roadmap vorbei, um die nächsten geplanten Updates einzusehen</p>
     </div>
