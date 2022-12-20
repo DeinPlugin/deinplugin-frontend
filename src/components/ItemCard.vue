@@ -1,30 +1,29 @@
 <template>
+    <router-link :to="`/storage/${item.uuid}`">
+      <div class="overflow-hidden h-100 itemcard">
+        <b-row>
+          <b-col md="3" class="my-1">
+            <img v-if="item.icon" :src="item.icon" alt="Image" class="rounded-0">
+            <img v-else
+                 :src="item.type === 'plugin' ? '/img/plugin_default.png' : '/img/lib_default.png'"
+                 alt="Icon">
+          </b-col>
+          <b-col md="9">
+            <h1>{{item.names[0].value}}</h1>
+            <p class="introduction">{{ item.introductions[0].value }}</p>
 
-  <router-link :to="`/storage/${item.uuid}`">
-    <div class="overflow-hidden h-100 itemcard">
-      <b-row>
-        <b-col md="2" class="my-3">
-          <img v-if="item.icon" :src="item.icon" alt="Image" class="rounded-0">
-          <img v-else
-               :src="item.type === 'plugin' ? '/img/plugin_default.png' : '/img/lib_default.png'"
-               alt="Icon">
-        </b-col>
-        <b-col md="9">
-          <h1>{{item.names[0].value}}</h1>
-          <p class="introduction">{{ item.introductions[0].value }}</p>
+            <colored-info :color="item.type !== 'lib' ? 'var(--bs-primary)' : 'var(--bs-primary)'">{{ item.type.toUpperCase() }}
+            </colored-info>
+            <colored-info color="var(--bs-secondary)">{{ item.category.toUpperCase() }}</colored-info>
+            <colored-info v-if="item.supportedPlatforms" v-for="platform in item.supportedPlatforms" color="#FB917B">
+              {{ platform.toUpperCase() }}
+            </colored-info>
 
-          <colored-info :color="item.type !== 'lib' ? 'var(--bs-primary)' : 'var(--bs-primary)'">{{ item.type.toUpperCase() }}
-          </colored-info>
-          <colored-info color="var(--bs-secondary)">{{ item.category.toUpperCase() }}</colored-info>
-          <colored-info v-if="item.supportedPlatforms" v-for="platform in item.supportedPlatforms" color="#FB917B">
-            {{ platform.toUpperCase() }}
-          </colored-info>
-
-          <p class="version">Version: {{ item.supportedGameVersions }}</p>
-        </b-col>
-      </b-row>
-    </div>
-  </router-link>
+            <p class="version">Version: {{ item.supportedGameVersions }}</p>
+          </b-col>
+        </b-row>
+      </div>
+    </router-link>
 </template>
 
 <script setup>
@@ -45,6 +44,10 @@ defineProps({
   background-color: #1E3139;
   padding: 1rem 2rem;
   transition: 0.3s;
+}
+
+.itemcard:hover {
+  scale: 1.02;
 }
 
 .itemcard:hover h1 {
