@@ -1,11 +1,12 @@
 <template>
   <footer>
-    <b-row>
+    <b-row class="justify-content-center">
       <b-col class="sponsor my-3" md="3" sm="4">
         <p>Designs by</p>
-        <a href="https://dershayan.de/" target="_blank"><img src="/img/dershayan.png"></a>
+        <a href="https://dershayan.de/" target="_blank"><img src="/img/dershayan.png
+"></a>
       </b-col>
-      <b-col md="5" sm="4" class="my-3">
+      <b-col md="5" sm="3" class="my-3">
         <div id="links">
           <a :href="$twitterUrl" target="_blank"><img src="/img/twitter.svg"></a>
           <a :href="$donationUrl" target="_blank"><img src="/img/buymeacoffee.png"></a>
@@ -19,7 +20,7 @@
 
         <p>Made with Love by DeinPlugin 2022</p>
       </b-col>
-      <b-col class="sponsor my-3" md="3" sm="4">
+      <b-col class="sponsor my-3" md="3" sm="3">
         <p>Server by</p>
         <a href="https://bero-host.de/" target="_blank"><img src="/img/berohost.png"></a>
       </b-col>
@@ -47,7 +48,13 @@ footer {
 }
 
 .sponsor img {
-  width: 15vw;
+  width: 12vw;
+}
+
+@media only screen and (max-width: 600px) {
+  .sponsor img {
+    width: 30vw;
+  }
 }
 
 #links img {

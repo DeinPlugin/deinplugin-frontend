@@ -6,7 +6,7 @@
           <h1 class="mx-5">Die Plattform <br/>für <span class="emphasize">freie Plugins</span>.</h1>
         </b-col>
         <b-col xl="6" md="10">
-          <b-img src="/img/icon_shadow.svg" fluid alt="Logo"></b-img>
+          <object type="image/svg+xml" data="/img/icon_shadow_animated.svg"></object>
         </b-col>
       </b-row>
     </div>
@@ -21,7 +21,7 @@
       </HoverCard>
     </b-row>
 
-    <div id="socials">
+    <div id="socials" class="px-5">
       <h1>Folge uns!</h1>
       <p>Joine unserem Discord-Server, folge uns auf Twitter oder schau dir unsere nächsten Pläne für kommende Updates an!</p>
       <b-row class="justify-content-center">
@@ -40,7 +40,7 @@
       </b-row>
     </div>
 
-    <div id="disclaimer">
+    <div id="disclaimer" class="mx-5">
       <h1 class="mt-5">Dies ist der erste Prototyp der neuen DeinPlugin-Plattform.</h1>
       <p>Es kann verstärkt zu Fehlern kommen. Bitte zögere uns nicht, diese auf Discord zu melden. Auch über sonstiges Feedback sind wir sehr dankbar.</p>
       <p>Schau auch auf unserer Roadmap vorbei, um die nächsten geplanten Updates einzusehen</p>
@@ -80,8 +80,8 @@ function openSubmission() {
   text-align: left;
 }
 
-#top img {
-  width: 50%;
+#top object {
+  width: 60%;
 }
 
 #top .emphasize {
