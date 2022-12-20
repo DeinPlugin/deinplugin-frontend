@@ -46,3 +46,11 @@ yarn-error.log
 
 # DB config data
 /backend/config/options.js
+
+# Certificates and keys
+*.pem
+*.crt
+
+# Settings overrides
+docker-compose.override.yml
+!localdev/*
