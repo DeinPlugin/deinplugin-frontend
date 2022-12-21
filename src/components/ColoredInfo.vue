@@ -1,15 +1,19 @@
 <template>
   <div :style="`border: 1px solid ${color}; color: ${color}`">
+    <Icon v-if="icon" :icon="icon" class="mx-1"/>
     <slot />
   </div>
 </template>
 
 <script setup>
+import {Icon} from "@iconify/vue";
+
 defineProps({
   color: {
     type: String,
-    default: '#FFFFFF'
+    default: '#FFFFFF',
   },
+  icon: String,
 })
 </script>
 
