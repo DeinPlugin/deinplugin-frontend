@@ -10,7 +10,7 @@
       <b-button @click="reset" class="text-white my-4">Noch ein Plugin einreichen</b-button>
     </div>
 
-    <b-col v-else xl="8" sm="10" class="mx-auto mb-5">
+    <b-col v-else xl="8" sm="11" class="mx-auto mb-5">
       <b-form @submit="onSubmit">
         <b-form-group
             id="input-group-1"
@@ -46,7 +46,7 @@
       </b-form>
     </b-col>
 
-    <b-col xl="8" sm="10" class="mx-auto mb-5">
+    <b-col xl="8" sm="11" class="mx-auto mb-5">
       <p>
         All unsere Einreichungen funktionieren im Moment über die Plattform <a href="https://github.com/" target="_blank">GitHub</a>.
         GitHub ist eine Plattform, auf der alle Entwickler quelloffene Projekte teilen können.<br/>
@@ -62,7 +62,7 @@
     </b-col>
 
 
-    <b-col xl="8" sm="10" class="mx-auto mb-5">
+    <b-col xl="8" sm="11" class="mx-auto mb-5">
       <Expandable title="Aufbau der deinplugin.yaml-Datei" id="parts">
         <h2>SpecsObject</h2>
         <MarkdownDisplay md="

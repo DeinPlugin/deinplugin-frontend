@@ -49,9 +49,12 @@
 
             <div v-if="item.videoSources[0]">
               <h1>Videoquellen</h1>
-              <div v-for="video in item.videoSources" class="mw-100">
-                <iframe width="853" height="480" :src="video.replace('watch?v=', 'embed/')"></iframe>
-              </div>
+              <b-container fluid>
+                <div v-for="video in item.videoSources" class="mw-100">
+                  <iframe :src="video.replace('watch?v=', 'embed/')"></iframe>
+                </div>
+              </b-container>
+
             </div>
 
           </b-tab>
@@ -127,4 +130,16 @@ h1 {
   border: 2px solid var(--bs-primary);
 }
 
+@media only screen and (max-width: 600px) {
+  #item-page {
+    padding: 1rem 1.5rem;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  iframe {
+    width: 853px;
+    height: 400px;
+  }
+}
 </style>

@@ -1,24 +1,29 @@
 <template>
   <div id="landing-page">
-    <div id="top">
-      <b-row class="my-5" xl="6" md="10">
-        <b-col class="d-flex align-items-center justify-content-center">
-          <h1 class="mx-5">Die Plattform <br/>für <span class="emphasize">freie Plugins</span>.</h1>
-        </b-col>
-        <b-col xl="6" md="10">
-          <object type="image/svg+xml" data="/img/icon_shadow_animated.svg"></object>
-        </b-col>
-      </b-row>
-    </div>
+    <b-container fluid>
+      <div id="top">
+        <b-row class="my-5" xl="6" md="10">
+          <b-col class="d-flex align-items-center justify-content-center">
+            <h1 class="mx-5">Die Plattform <br/>für <span class="emphasize">freie Plugins</span>.</h1>
+          </b-col>
+          <b-col xl="6" md="10">
+            <object type="image/svg+xml" data="/img/icon_shadow_animated.svg"></object>
+          </b-col>
+        </b-row>
+      </div>
+    </b-container>
 
-    <b-row class="justify-content-center my-5 mx-4">
-      <HoverCard title="Owner" img-url="/img/owner.svg" :on-click="openPlugins">
-        Lade dir jetzt die Plugins herunter, die am besten zu deinem Server passen und begeistere deine Community!
-      </HoverCard>
-      <HoverCard title="Developer" img-url="/img/developer.svg" :on-click="openSubmission">
-        Reiche deine Plugins auf DeinPlugin ein! Die breite User-Basis hilft dir, Fehler zu finden und dein Plugin zu verbessern.
-      </HoverCard>
-    </b-row>
+    <b-container fluid>
+        <b-row class="justify-content-center my-5 mx-4">
+          <HoverCard title="Owner" img-url="/img/owner.svg" :on-click="openPlugins">
+            Lade dir jetzt die Plugins herunter, die am besten zu deinem Server passen und begeistere deine Community!
+          </HoverCard>
+          <HoverCard title="Developer" img-url="/img/developer.svg" :on-click="openSubmission">
+            Reiche deine Plugins auf DeinPlugin ein! Die breite User-Basis hilft dir, Fehler zu finden und dein Plugin zu verbessern.
+          </HoverCard>
+        </b-row>
+      </b-container>
+    </div>
 
     <div id="socials" class="px-5">
       <h1>Folge uns!</h1>
@@ -44,7 +49,6 @@
       <p>Es kann verstärkt zu Fehlern kommen. Bitte zögere uns nicht, diese auf Discord zu melden. Auch über sonstiges Feedback sind wir sehr dankbar.</p>
       <p class="mb-5">Schau auch auf unserer Roadmap vorbei, um die nächsten geplanten Updates einzusehen</p>
     </div>
-  </div>
 </template>
 
 <script setup>

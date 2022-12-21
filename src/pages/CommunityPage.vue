@@ -1,18 +1,20 @@
 <template>
   <div id="community">
-    <h1 class="my-5">Die DeinPlugin-Community</h1>
+    <h1 class="my-5 mx-2">Die DeinPlugin-Community</h1>
 
-    <b-row class="my-5 mx-4 justify-content-center">
-      <HoverCard title="Twitter" img-url="/img/twitter_outline.jpg" :on-click="openTwitter">
-        Erhalte immer die aktuellen Neuigkeiten zur Plattform und nimm an exklusiven Events wie Verlosungen teil.
-      </HoverCard>
-      <HoverCard title="Donation" img-url="/img/donation.svg" :on-click="openDonation">
-        Unterstütze die Entwicklung- und Unterhaltungskosten der Plattform mit einer finanziellen Spende.
-      </HoverCard>
-      <HoverCard title="Discord" img-url="/img/discord_outline.png" :on-click="openDiscord">
-        Vernetze dich mit einer wachsenden Community aus Entwicklern und Serverbesitzern oder gib und Feedback.
-      </HoverCard>
-    </b-row>
+    <b-container fluid>
+      <b-row class="my-5 mx-4 justify-content-center">
+        <HoverCard title="Twitter" img-url="/img/twitter_outline.jpg" :on-click="openTwitter">
+          Erhalte immer die aktuellen Neuigkeiten zur Plattform und nimm an exklusiven Events wie Verlosungen teil.
+        </HoverCard>
+        <HoverCard title="Donation" img-url="/img/donation.svg" :on-click="openDonation">
+          Unterstütze die Entwicklung- und Unterhaltungskosten der Plattform mit einer finanziellen Spende.
+        </HoverCard>
+        <HoverCard title="Discord" img-url="/img/discord_outline.png" :on-click="openDiscord">
+          Vernetze dich mit einer wachsenden Community aus Entwicklern und Serverbesitzern oder gib und Feedback.
+        </HoverCard>
+      </b-row>
+    </b-container>
 
     <b-container class="next-steps">
       <h1>Nächste Schritte</h1>

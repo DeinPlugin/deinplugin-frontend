@@ -1,9 +1,12 @@
 <template>
-  <b-row v-if="items" id="items">
-    <b-col v-for="item in items" lg="4" md="10" class="align-self-stretch my-2">
-      <ItemCard :item="item"></ItemCard>
-    </b-col>
-  </b-row>
+  <b-container fluid v-if="items" id="items">
+    <b-row>
+      <b-col v-for="item in items" lg="4" md="10" class="align-self-stretch my-2">
+        <ItemCard :item="item"></ItemCard>
+      </b-col>
+    </b-row>
+  </b-container>
+
 
   <div v-else class="d-flex justify-content-center my-5">
     <b-spinner variant="primary" label="Lade"></b-spinner>

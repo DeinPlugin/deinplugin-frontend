@@ -22,8 +22,8 @@
         </div>
 
         <div class="my-3">
-          <b-button v-if="item.download[0]" v-for="download in item.download" :href="download.download_url" target="_blank" class="text-white">Download - {{download.name}}</b-button>
-          <b-button v-else :href="`${item.github_url}/releases`" target="_blank" class="text-white">Download - GitHub</b-button>
+          <b-button v-if="item && item.download && item.download[0]" v-for="download in item.download" :href="download.download_url" target="_blank" class="text-white">Download - {{download.name}}</b-button>
+          <b-button v-else v-if="item" :href="`${item.github_url}/releases`" target="_blank" class="text-white">Download - GitHub</b-button>
         </div>
       </div>
     </div>
