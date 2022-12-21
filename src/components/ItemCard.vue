@@ -12,10 +12,10 @@
             <h1>{{item.names[0].value}}</h1>
             <p class="introduction">{{ item.introductions[0].value }}</p>
 
-            <colored-info :color="item.type !== 'lib' ? 'var(--bs-primary)' : 'var(--bs-primary)'">{{ item.type.toUpperCase() }}
+            <colored-info :icon="getDataFromType(item.type).icon" :color="item.type !== 'lib' ? 'var(--bs-primary)' : 'var(--bs-primary)'">{{ item.type.toUpperCase() }}
             </colored-info>
-            <colored-info color="var(--bs-secondary)">{{ item.category.toUpperCase() }}</colored-info>
-            <colored-info v-if="item.supportedPlatforms" v-for="platform in item.supportedPlatforms" color="#FB917B">
+            <colored-info :icon="getDataFromCategory(item.category).icon" color="var(--bs-secondary)">{{ item.category.toUpperCase() }}</colored-info>
+            <colored-info v-if="item.supportedPlatforms" v-for="platform in item.supportedPlatforms" color="#FB917B" :icon="getDataFromPlatform(platform).icon">
               {{ platform.toUpperCase() }}
             </colored-info>
 
@@ -28,6 +28,7 @@
 
 <script setup>
 import ColoredInfo from './ColoredInfo.vue'
+import {onMounted} from "vue";
 
 defineProps({
   item: Object

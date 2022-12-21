@@ -36,6 +36,78 @@ const router = createRouter({
 });
 
 const app = createApp(App)
+app.mixin({
+    methods: {
+        getDataFromType: function(type) {
+            switch (type.toLowerCase()) {
+                case 'plugin': return {
+                    name: 'Plugin',
+                    icon: 'bi:plugin'
+                }
+                case 'lib': return {
+                    name: 'Bibliothek',
+                    icon: 'material-symbols:menu-book'
+                }
+            }
+        },
+        getDataFromCategory: function(category) {
+            switch (category.toLowerCase()) {
+                case 'admintool': return {
+                    name: 'Admin-Tool',
+                    icon: 'ic:baseline-remove-red-eye'
+                }
+                case 'devtool': return {
+                    name: 'Developer-Tool',
+                    icon: 'material-symbols:developer-mode'
+                }
+                case 'chat': return {
+                    name: 'Chat',
+                    icon: 'material-symbols:chat'
+                }
+                case 'economy': return {
+                    name: 'Economy',
+                    icon: 'mdi:money-100'
+                }
+                case 'game': return {
+                    name: 'Game',
+                    icon: 'ion:game-controller'
+                }
+                case 'protection': return {
+                    name: 'Schutz',
+                    icon: 'material-symbols:admin-panel-settings-rounded'
+                }
+                case 'roleplay': return {
+                    name: 'Rollenspiel',
+                    icon: 'mdi:castle'
+                }
+                case 'worldmanagement': return {
+                    name: 'Welt-Management',
+                    icon: 'mdi:world'
+                }
+                case 'misc': return {
+                    name: 'Sonstiges',
+                    icon: 'akar-icons:dot-grid-fill'
+                }
+            }
+        },
+        getDataFromPlatform: function(platform) {
+            switch (platform.toLowerCase()) {
+                case 'spigot': return {
+                    name: 'Spigot',
+                    icon: 'material-symbols:water-drop'
+                }
+                case 'paper': return {
+                    name: 'Paper',
+                    icon: 'mdi:paper'
+                }
+                case 'sponge': return {
+                    name: 'Sponge',
+                    icon: 'fluent-emoji-high-contrast:sponge'
+                }
+            }
+        },
+    }
+})
 app.use(BootstrapVue3)
 app.use(router)
 
