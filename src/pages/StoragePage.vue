@@ -103,7 +103,7 @@ const filteredItems = computed(() => {
       .filter((i) => searchFilter.value.text.trim().length === 0 || i.names[0].value.toLowerCase().includes(searchFilter.value.text.toLowerCase()))
       .filter((i) => searchFilter.value.types.includes(i.type))
       .filter((i) => searchFilter.value.categories.includes(i.category))
-      .filter((i) => i.supportedPlatforms.some((p) => searchFilter.value.platforms.includes(p)))
+      .filter((i) => i.supportedPlatforms === null || i.supportedPlatforms.some((p) => searchFilter.value.platforms.includes(p)))
 })
 
 function selectAll() {
