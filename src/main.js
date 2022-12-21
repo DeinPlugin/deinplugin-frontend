@@ -8,6 +8,8 @@ import './assets/main.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
 
+import VueAnalytics from 'vue3-analytics'
+
 import './assets/app.scss'
 import Home from './pages/HomePage.vue'
 import Storage from './pages/StoragePage.vue'
@@ -110,6 +112,10 @@ app.mixin({
 })
 app.use(BootstrapVue3)
 app.use(router)
+app.use(VueAnalytics, {
+    id: import.meta.env.VITE_ANALYTICS_ID,
+    router
+})
 
 app.config.globalProperties.$discordJoinUrl = 'https://discord.gg/azG4wxrQWy'
 app.config.globalProperties.$donationUrl = 'https://www.buymeacoffee.com/deinplugin'

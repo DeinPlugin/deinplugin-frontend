@@ -1,4 +1,6 @@
 <template>
+  <h1 class="text-center text-primary my-5 mx-3">Plugins</h1>
+
   <b-container class="my-4">
     <b-row>
       <b-col md="10" class="my-2">

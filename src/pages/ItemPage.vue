@@ -38,7 +38,7 @@
               <li>Neustarten des Servers</li>
             </ul>
 
-            <div v-if="item.images[0]">
+            <div v-if="item.images && item.images[0]">
               <h1>Bilder</h1>
               <b-row>
                 <b-col xl="4" sm="10" v-for="image in item.images">
@@ -47,7 +47,7 @@
               </b-row>
             </div>
 
-            <div v-if="item.videoSources[0]">
+            <div v-if="item.videoSources && item.videoSources[0]">
               <h1>Videoquellen</h1>
               <b-container fluid>
                 <div v-for="video in item.videoSources" class="mw-100">

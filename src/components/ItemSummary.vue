@@ -4,7 +4,7 @@
     <p class="subtitle">{{item.introductions[0].value}}</p>
 
     <p><b>Typ:</b> {{capitalizeFirstLetter(item.type)}}</p>
-    <p><b>{{item.supportedPlatforms.length > 1 ? 'Plattformen' : 'Plattform'}}:</b> {{item.supportedPlatforms.map(e => capitalizeFirstLetter(e)).join(', ')}}</p>
+    <p v-if="item.supportedPlatforms"><b>{{item.supportedPlatforms.length > 1 ? 'Plattformen' : 'Plattform'}}:</b> {{item.supportedPlatforms.map(e => capitalizeFirstLetter(e)).join(', ')}}</p>
     <p v-if="item.supportedGameVersions"><b>Versionen:</b> {{item.supportedGameVersions}}</p>
     <p>
       <b>{{item.authors.length > 1 ? 'Autoren' : 'Autor'}}: </b>
