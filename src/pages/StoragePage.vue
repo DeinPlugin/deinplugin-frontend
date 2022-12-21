@@ -10,10 +10,15 @@
     </b-row>
   </b-container>
 
-  <b-collapse id="collapse-filter" class="mt-2">
+  <b-collapse id="collapse-filter">
     <b-container>
-      <b-row>
-        <b-col>
+      <div class="text-center">
+        <b-button class="text-white my-1" @click="selectAll">Alle anwählen</b-button>
+        <b-button class="text-white mx-3" @click="deselectAll">Alle abwählen</b-button>
+      </div>
+
+      <b-row class="mx-3 my-4 justify-content-center">
+        <b-col xl="3">
           <p><b>Art</b></p>
           <b-form-group>
             <b-form-checkbox
@@ -26,7 +31,7 @@
           </b-form-group>
         </b-col>
 
-        <b-col>
+        <b-col xl="3">
           <p><b>Kategorie</b></p>
           <b-form-group>
             <b-form-checkbox
@@ -39,7 +44,7 @@
           </b-form-group>
         </b-col>
 
-        <b-col>
+        <b-col xl="3">
           <p><b>Plattform</b></p>
           <b-form-group>
             <b-form-checkbox
@@ -56,7 +61,7 @@
   </b-collapse>
 
   <b-container fluid v-if="items && filteredItems" id="items">
-    <div v-if="filteredItems.length === 0" class="text-center">
+    <div v-if="filteredItems.length === 0" class="text-center mt-5">
       <h2>Leider keine passenden Plugins gefunden. :(</h2>
       <p class="my-4">Es wird eindeutig Zeit, dass sich jemand deiner Vorstellung annimmt!</p>
       <p>Wie wäre es, wenn du auf unserem <a :href="$discordJoinUrl" target="_blank">Discord-Server</a> fragst?</p>
@@ -100,6 +105,16 @@ const filteredItems = computed(() => {
       .filter((i) => searchFilter.value.categories.includes(i.category))
       .filter((i) => i.supportedPlatforms.some((p) => searchFilter.value.platforms.includes(p)))
 })
+
+function selectAll() {
+  searchFilter.value.types = types
+  searchFilter.value.categories = categories
+  searchFilter.value.platforms = platforms
+}
+
+function deselectAll() {
+  searchFilter.value.types = searchFilter.value.categories = searchFilter.value.platforms = []
+}
 
 async function fetchItems() {
   items.value = null
