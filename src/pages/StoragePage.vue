@@ -19,7 +19,7 @@
         <b-button class="text-white mx-3" @click="deselectAll">Alle abwählen</b-button>
       </div>
 
-      <b-row class="mx-3 my-4 justify-content-center">
+      <b-row class="mt-4 justify-content-center">
         <b-col xl="3">
           <p><b>Art</b></p>
           <b-form-group>
@@ -69,9 +69,8 @@
       <p>Wie wäre es, wenn du auf unserem <a :href="$discordJoinUrl" target="_blank">Discord-Server</a> fragst?</p>
     </div>
 
-
     <b-row>
-      <b-col v-for="item in filteredItems" lg="4" md="10" class="align-self-stretch my-2">
+      <b-col v-for="item in filteredItems" xl="4" lg="6" md="12" class="align-self-stretch my-2">
         <ItemCard :item="item"></ItemCard>
       </b-col>
     </b-row>
@@ -84,9 +83,10 @@
 </template>
 
 <script setup>
-import {computed, ref} from "vue";
+import {computed, onMounted, ref} from "vue";
 import ItemCard from "@/components/ItemCard.vue";
 import {Icon} from "@iconify/vue";
+import {event} from "vue-gtag";
 
 const types = ['plugin', 'lib']
 const categories = ['adminTool', 'devTool', 'chat', 'economy', 'game', 'protection', 'roleplay', 'worldManagement', 'misc']
@@ -105,17 +105,25 @@ const filteredItems = computed(() => {
       .filter((i) => searchFilter.value.text.trim().length === 0 || i.names[0].value.toLowerCase().includes(searchFilter.value.text.toLowerCase()))
       .filter((i) => searchFilter.value.types.includes(i.type))
       .filter((i) => searchFilter.value.categories.includes(i.category))
-      .filter((i) => i.supportedPlatforms === null || i.supportedPlatforms.some((p) => searchFilter.value.platforms.includes(p)))
+      .filter((i) => i.supportedPlatforms === null || i.supportedPlatforms.length === 0 || i.supportedPlatforms.some((p) => searchFilter.value.platforms.includes(p)))
 })
 
 function selectAll() {
   searchFilter.value.types = types
   searchFilter.value.categories = categories
   searchFilter.value.platforms = platforms
+
+  event('filter-plugin', {
+    event_label: 'all'
+  })
 }
 
 function deselectAll() {
   searchFilter.value.types = searchFilter.value.categories = searchFilter.value.platforms = []
+
+  event('filter-plugin', {
+    event_label: 'none'
+  })
 }
 
 async function fetchItems() {
@@ -123,6 +131,7 @@ async function fetchItems() {
   const res = await fetch(
       `${import.meta.env.VITE_SERVICE_URL}/plugins/`
   )
+  // console.log(await res.json())
   items.value = await res.json()
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <b-col xl="3" sm="8" class="hover-card mx-4 my-3" @click="onClick">
+  <b-col xl="3" sm="8" class="hover-card mx-4 my-3" @click="handleClick">
     <b-row>
       <b-col md="4">
         <img :src="imgUrl" class="my-3">
@@ -14,11 +14,21 @@
 
 <script setup>
 
-defineProps({
+import {event} from "vue-gtag";
+
+const props = defineProps({
   title: String,
   imgUrl: String,
   onClick: Function,
 })
+
+function handleClick() {
+  props.onClick()
+
+  event('hovercard-click', {
+    event_label: props.title
+  })
+}
 </script>
 
 <style scoped>

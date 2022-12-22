@@ -5,9 +5,11 @@ h1, h2, h3 {
 }
 
 pre {
-    white-space: pre-wrap;
-    overflow-x: auto;
     background-color: #1E3139;
+    overflow: auto;
+    word-break: normal !important;
+    word-wrap: normal !important;
+    white-space: pre !important;
 }
 
 pre code {

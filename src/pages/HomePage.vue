@@ -59,7 +59,10 @@ function openPlugins() {
 }
 
 function openSubmission() {
-  window.open('/storage', '_self')
+  window.open('/submission', '_self')
+}
+
+function openTwitter() {
 }
 </script>
 

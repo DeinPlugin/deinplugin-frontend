@@ -13,8 +13,8 @@
     "bootstrap-vue-3": "^0.4.15",
     "marked": "^4.2.4",
     "vue": "^3.2.45",
-    "vue-router": "^4.0.13",
-    "vue3-analytics": "^1.0.0"
+    "vue-gtag": "^2.0.1",
+    "vue-router": "^4.0.13"
   },
   "devDependencies": {
     "@iconify/vue": "^4.0.2",

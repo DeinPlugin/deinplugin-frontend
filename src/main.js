@@ -8,7 +8,7 @@ import './assets/main.css'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue-3/dist/bootstrap-vue-3.css'
 
-import VueAnalytics from 'vue3-analytics'
+import VueGtag from "vue-gtag";
 
 import './assets/app.scss'
 import Home from './pages/HomePage.vue'
@@ -27,8 +27,7 @@ const routes = [
     { path: '/submission', name: 'Einreichen', component: Submission },
     { path: '/community', name: 'Community', component: Community },
     { path: '/imprint', name: 'Impressum', component: Imprint },
-    { path: '/policy', name: 'Datenschutzerklärung', component: Policy
-    },
+    { path: '/policy', name: 'Datenschutzerklärung', component: Policy },
     { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ]
 
@@ -112,9 +111,8 @@ app.mixin({
 })
 app.use(BootstrapVue3)
 app.use(router)
-app.use(VueAnalytics, {
-    id: import.meta.env.VITE_ANALYTICS_ID,
-    router
+app.use(VueGtag, {
+    config: { id: import.meta.env.VITE_ANALYTICS_ID }
 })
 
 app.config.globalProperties.$discordJoinUrl = 'https://discord.gg/azG4wxrQWy'

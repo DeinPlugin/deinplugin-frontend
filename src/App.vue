@@ -11,6 +11,17 @@
 <script setup>
 import NavBar from './NavBar.vue'
 import Footer from "@/Footer.vue";
+import {watch} from "vue";
+import {useRoute} from "vue-router";
+import {pageview} from "vue-gtag";
+
+const route = useRoute()
+watch(
+    () => route.path,
+    async newPath => {
+      pageview(newPath)
+    }
+)
 </script>
 
 <style scoped>

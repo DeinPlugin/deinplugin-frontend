@@ -22,8 +22,8 @@
         </div>
 
         <div class="my-3">
-          <b-button v-if="item && item.download && item.download[0]" v-for="download in item.download" :href="download.download_url" target="_blank" class="text-white">Download - {{download.name}}</b-button>
-          <b-button v-else v-if="item" :href="`${item.github_url}/releases`" target="_blank" class="text-white">Download - GitHub</b-button>
+          <b-button v-if="item && item.download && item.download[0]" v-for="download in item.download" @click="openDownload(download.download_url)" class="text-white">Download - {{download.name}}</b-button>
+          <b-button v-else v-if="item" @click="openDownload(`${item.github_url}/releases`)" class="text-white">Download - GitHub</b-button>
         </div>
       </div>
     </div>
@@ -31,14 +31,19 @@
 </template>
 
 <script setup>
-import {ref} from "vue";
+import {event} from "vue-gtag";
 
-defineProps({
+const props = defineProps({
   title: String,
   item: Object,
 })
 
-function close() {
+function openDownload(url) {
+  window.open(url, '_blank')
+
+  event('download', {
+    event_label: props.item.names[0].value
+  })
 }
 </script>
 

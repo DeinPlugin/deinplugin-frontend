@@ -82,11 +82,12 @@
 </template>
 
 <script setup>
-import {ref} from "vue"
+import {onMounted, ref} from "vue"
 import {useRoute} from "vue-router"
 import MarkdownDisplay from "@/components/MarkdownDisplay.vue"
 import ItemSummary from "@/components/ItemSummary.vue"
 import DownloadModal from "@/components/DownloadModal.vue"
+import {event} from "vue-gtag";
 
 const item = ref(null)
 const route = useRoute()
@@ -98,6 +99,9 @@ async function fetchItem() {
   )
 
   item.value = await res.json()
+  event('visit-storage-item', {
+    event_label: item.value.names[0].value
+  })
 }
 
 fetchItem()
