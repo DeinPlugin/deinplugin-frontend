@@ -51,7 +51,7 @@
               <h1>Videoquellen</h1>
               <b-container fluid>
                 <div v-for="video in item.videoSources" class="mw-100">
-                  <iframe :src="video.replace('watch?v=', 'embed/')"></iframe>
+                  <iframe :src="video.replace('youtu.be', 'youtube.com/watch?v=').replace('watch?v=', 'embed/')"></iframe>
                 </div>
               </b-container>
 
