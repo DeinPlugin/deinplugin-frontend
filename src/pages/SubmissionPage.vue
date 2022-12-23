@@ -239,6 +239,15 @@ videoSources:
 ```
 " />
       </Expandable>
+
+      <Expandable title="Schema zur Validierung" id="schema">
+        <p>
+          In unserem <a href="https://github.com/DeinPlugin/contribute/blob/main/schema.json" target="_blank">Contribution GitHub-Repository</a>
+          stellen wir ein JSON-Schema bereit, das zur Validierung der YAML-Metadatei genutzt werden kann.
+          Viele gängige Code-Editoren bieten das Einbinden eines solchen Schemas zur einfacheren Bearbeitung der Datei an.
+        </p>
+        <p>Bitte beachte, dass es keine Garantie für die Richtigkeit des Schemas gibt. Das Schema findet sich in ständiger Überarbeitung.</p>
+      </Expandable>
     </b-col>
   </div>
 </template>
