@@ -1,0 +1,28 @@
+name: Deploy to test server
+
+on:
+  push:
+    branches: [development]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to test server
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.TEST_SSH_HOST }}
+          username: ${{ secrets.TEST_SSH_USERNAME }}
+          key: ${{ secrets.TEST_SSH_SECRET }}
+          port: 22
+          script: |
+            cd ${{ secrets.TEST_SSH_DEPLOY_PATH }}
+            echo "Updating repository ..."
+            git pull origin main
+            echo "Stopping old containers ..."
+            docker compose down
+            echo "Building and starting new containers ..."
+            docker compose up --build -d --remove-orphans
+            echo "Deleting old images ..."
+            docker image prune -a -f

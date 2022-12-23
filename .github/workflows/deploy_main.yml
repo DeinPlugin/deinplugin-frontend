@@ -1,9 +1,7 @@
-name: Deploy to test server
+name: Deploy to prod server
 
 on:
   push:
-    branches: [main]
-  pull_request:
     branches: [main]
   workflow_dispatch:
 
@@ -11,15 +9,15 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to test server
+      - name: Deploy to prod server
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.TEST_SSH_HOST }}
-          username: ${{ secrets.TEST_SSH_USERNAME }}
-          key: ${{ secrets.TEST_SSH_SECRET }}
+          host: ${{ secrets.PROD_SSH_HOST }}
+          username: ${{ secrets.PROD_SSH_USERNAME }}
+          key: ${{ secrets.PROD_SSH_SECRET }}
           port: 22
           script: |
-            cd ${{ secrets.TEST_SSH_DEPLOY_PATH }}
+            cd ${{ secrets.PROD_SSH_DEPLOY_PATH }}
             echo "Updating repository ..."
             git pull origin main
             echo "Stopping old containers ..."

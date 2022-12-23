@@ -1,5 +1,6 @@
 # Other excluded files
 *.env
+*.env.save
 
 # Logs
 logs
@@ -34,7 +35,6 @@ npm-debug.log
 .DS_Store
 node_modules/
 dist/
-npm-debug.log
 yarn-error.log
 
 # Editor directories and files
