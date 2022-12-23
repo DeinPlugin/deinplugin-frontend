@@ -19,7 +19,7 @@ jobs:
           script: |
             cd ${{ secrets.TEST_SSH_DEPLOY_PATH }}
             echo "Updating repository ..."
-            git pull origin main
+            git pull origin development
             echo "Stopping old containers ..."
             docker compose down
             echo "Building and starting new containers ..."
