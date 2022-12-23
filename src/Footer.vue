@@ -4,13 +4,13 @@
       <b-row class="justify-content-center">
         <b-col class="sponsor my-3" md="3" sm="4">
           <p>Designs by</p>
-          <a href="https://dershayan.de/" target="_blank"><img src="/img/dershayan.png"></a>
+          <img @click="openExternalFooterLink('https://dershayan.de/')" src="/img/dershayan.png">
         </b-col>
         <b-col md="5" sm="3" class="my-3">
           <div id="links">
-            <a :href="$twitterUrl" target="_blank"><img src="/img/twitter.svg"></a>
-            <a :href="$donationUrl" target="_blank"><img src="/img/buymeacoffee.png"></a>
-            <a :href="$discordJoinUrl" target="_blank"><img src="/img/discord.svg"></a>
+            <img @click="openExternalFooterLink($twitterUrl)" src="/img/twitter.svg">
+            <img @click="openExternalFooterLink($donationUrl)" src="/img/buymeacoffee.png">
+            <img @click="openExternalFooterLink($discordJoinUrl)" src="/img/discord.svg">
           </div>
 
           <div id="legal">
@@ -22,7 +22,7 @@
         </b-col>
         <b-col class="sponsor my-3" md="3" sm="3">
           <p>Server by</p>
-          <a href="https://bero-host.de/" target="_blank"><img src="/img/berohost.png"></a>
+          <img @click="openExternalFooterLink('https://bero-host.de/')" src="/img/berohost.png">
         </b-col>
       </b-row>
     </b-container>
@@ -30,6 +30,14 @@
 </template>
 
 <script setup>
+import {event} from "vue-gtag";
+
+function openExternalFooterLink(url) {
+  window.open(url, 'blank')
+  event('footer-link', {
+    event_label: url,
+  })
+}
 </script>
 
 <style scoped>
@@ -47,6 +55,10 @@ footer {
 #legal a {
   display: inline-block;
   text-decoration: none;
+}
+
+img {
+  cursor: pointer;
 }
 
 .sponsor img {

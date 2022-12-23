@@ -56,7 +56,7 @@
       <p>
         Das Einreichen eines Plugins ist bei uns nur für GitHub-Projekte möglich, die eine bestimmte Datei im Hauptverzeichnis beinhalten.
         Die Datei muss den Namen <b>deinplugin.yaml</b> tragen und eine vorgegebene Form besitzen.
-        Die komplette Spezifikation der deinplugin.yaml-Datei findest du in einem von uns angelegten <a href="http://github.com" target="_blank">GitHub-Repository.</a>
+        Die komplette Spezifikation der deinplugin.yaml-Datei findest du in einem von uns angelegten <a href="https://github.com/DeinPlugin/contribute" target="_blank">GitHub-Repository.</a>
         Wenn du direkt einsteigen willst, kannst du aber auch die unten gezeigten Beispiele anschauen oder dich an der deinplugin.yaml-Datei bereits eingereichter Plugins orientieren.
       </p>
     </b-col>
@@ -75,7 +75,7 @@ authors*: [String]
 download: DownloadObject
 supportedPlatforms: [String]
   {spigot, paper, sponge}
-supportedGameVersions: String (Semantic Version)
+supportedGameVersions*: String (Semantic Version)
 category*: String
   {adminTool, devTool, chat, economy, game, protection, roleplay, worldManagement, misc}
 dependencies: [DependencyObject]

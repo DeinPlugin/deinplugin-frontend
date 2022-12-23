@@ -87,10 +87,8 @@ import {computed, onMounted, ref} from "vue";
 import ItemCard from "@/components/ItemCard.vue";
 import {Icon} from "@iconify/vue";
 import {event} from "vue-gtag";
-
-const types = ['plugin', 'lib']
-const categories = ['adminTool', 'devTool', 'chat', 'economy', 'game', 'protection', 'roleplay', 'worldManagement', 'misc']
-const platforms = ['spigot', 'paper', 'sponge']
+import {getDataFromType, getDataFromCategory, getDataFromPlatform, categories, platforms} from "@/data_util";
+import {types} from "@/data_util";
 
 const items = ref(null)
 const searchFilter = ref({

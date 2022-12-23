@@ -28,7 +28,7 @@
 
 <script setup>
 import ColoredInfo from './ColoredInfo.vue'
-import {onMounted} from "vue";
+import {getDataFromCategory, getDataFromPlatform, getDataFromType} from "@/data_util";
 
 defineProps({
   item: Object
