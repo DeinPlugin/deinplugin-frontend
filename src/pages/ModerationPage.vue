@@ -1,13 +1,19 @@
 <template>
   <b-container v-if="!items" class="my-5">
     <b-row>
-      <b-col lg="8">
+      <b-col lg="8" class="mb-3">
         <b-form-input v-model="passwordInput" type="password" placeholder="Moderations-Passwort"/>
       </b-col>
       <b-col>
         <b-button @click="setPassword" class="text-white w-100">Einloggen</b-button>
       </b-col>
     </b-row>
+
+    <div class="text-center my-5">
+      <h1>Dieser Ort ist geheimer als Fort Knox.</h1>
+      <p>Ohne ein Passwort wirst du hier also nicht viel finden.</p>
+    </div>
+
     <p v-if="error" class="text-danger my-3">{{error}}</p>
   </b-container>
 

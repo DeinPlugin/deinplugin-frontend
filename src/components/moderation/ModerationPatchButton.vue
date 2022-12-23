@@ -1,5 +1,5 @@
 <template>
-  <b-button @click="patchState(state)" v-if="item.state !== state" class="text-white">Auf {{state.toUpperCase()}} setzen</b-button>
+  <b-button @click="patchState(state)" v-if="item.state !== state" class="text-white my-2">Auf {{state.toUpperCase()}} setzen</b-button>
 </template>
 
 <script setup>

@@ -16,7 +16,4 @@ function markdownToHtml(x) {
 </script>
 
 <style scoped>
-  h1 {
-    font-size: 18pt;
-  }
 </style>

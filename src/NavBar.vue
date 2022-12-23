@@ -50,14 +50,18 @@ img {
   margin-left: 1rem;
 }
 
-@media only screen and (max-width: 600px) {
+#toggle {
+  position: absolute;
+  right: 0px;
+}
+
+@media only screen and (max-width: 999px) {
   img {
     display: inline-block;
   }
 
-  #toggle {
-    position: absolute;
-    right: 0px;
+  #main-item {
+    width: 100vw;
   }
 }
 </style>

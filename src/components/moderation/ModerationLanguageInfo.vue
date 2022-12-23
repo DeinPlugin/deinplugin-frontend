@@ -1,7 +1,7 @@
 <template>
   <slot>
     <div v-for="item in langItems">
-      Language-Key: {{item.key === null ? 'Keine Angabe, Standardsprache' : item.key}}
+      <span class="text-muted">Language-Key: {{item.key === null ? 'Keine Angabe, Standardsprache' : item.key}}</span>
       <pre v-if="wrapInPre">{{item.value}}</pre>
       <p v-else>{{item.value}}</p>
     </div>

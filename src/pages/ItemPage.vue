@@ -2,13 +2,13 @@
   <DownloadModal title="Download" :item="item" />
 
   <div v-if="item" id="item-page">
-    <b-row>
-      <b-col xl="10" md="12">
-        <b-tabs content-class="mt-3" justified id="tabs" active-nav-item-class="font-weight-bold text-primary font-weight-bold">
-          <b-tab title="Überblick" title-item-class="d-xl-none">
-            <ItemSummary :item="item" />
-          </b-tab>
+    <div class="d-xl-none mb-5">
+      <ItemSummary :item="item" />
+    </div>
 
+    <b-row>
+      <b-col xl="10" lg="12" md="12">
+        <b-tabs content-class="mt-3" justified id="tabs" active-nav-item-class="font-weight-bold text-primary font-weight-bold">
           <b-tab title="Infos" active>
             <h1>Beschreibung</h1>
             <MarkdownDisplay :md="item.descriptions[0].value"/>

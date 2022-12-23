@@ -13,29 +13,36 @@
     <b-col v-else xl="8" sm="11" class="mx-auto mb-5">
       <b-form @submit="onSubmit">
         <b-form-group
-            id="input-group-1"
-            label="E-Mail-Adresse:"
-            label-for="input-1"
-            description="Über die Angabe deiner Mailadresse benachrichtigen wir dich über den Status deiner Einreichung.">
+            id="mail-input-group"
+            label="E-Mail-Adresse*:"
+            label-for="mail-input">
           <b-form-input
-              id="input-1"
-              v-model="form.email"
-              type="email"
+              id="mail-input"
+              v-model="state.email"
               placeholder="E-Mail-Adresse"
+              aria-describedby="mail-feedback"
           ></b-form-input>
+          <b-form-text>Über die Angabe deiner Mailadresse benachrichtigen wir dich über den Status deiner Einreichung.</b-form-text>
         </b-form-group>
+        <b-form-invalid-feedback v-for="error in v$.email.$errors" class="my-3" id="mail-feedback">
+          Bitte gib eine gültige Mail-Adresse an.
+        </b-form-invalid-feedback>
 
-        <b-form-group id="input-group-2"
-                      label="GitHub-Repository URL"
-                      label-for="input-2"
-                      description="Es muss sich um ein Repository mit gültiger deinplugin.yaml-Datei handeln.">
+        <b-form-group id="github-input-group"
+                      label="GitHub-Repository URL*:"
+                      label-for="github-input"
+                      description=""
+                      class="my-4">
           <b-form-input
-              id="input-2"
-              v-model="form.github_url"
+              id="github-input"
+              v-model="state.github_url"
               placeholder="GitHub-URL"
-              required
           ></b-form-input>
+          <b-form-text>Es muss sich um ein Repository mit gültiger deinplugin.yaml-Datei handeln.</b-form-text>
         </b-form-group>
+        <b-form-invalid-feedback v-for="error in v$.github_url.$errors" class="my-3">
+          Bitte gib eine gültige GitHub-URL an.
+        </b-form-invalid-feedback>
 
         <p v-if="error" class="text-danger">{{error}}</p>
 
@@ -49,15 +56,19 @@
     <b-col xl="8" sm="11" class="mx-auto mb-5">
       <p>
         All unsere Einreichungen funktionieren im Moment über die Plattform <a href="https://github.com/" target="_blank">GitHub</a>.
-        GitHub ist eine Plattform, auf der alle Entwickler quelloffene Projekte teilen können.<br/>
+        GitHub ist eine Plattform, auf der alle Entwickler quelloffene Projekte teilen können.
         In quelloffenen Projekten ist der Quellcode für jeden Außenstehenden einsehbar.
-        Außerdem können andere Entwickler das Projekt weiterentwickeln und somit den ursprünglichen Entwickler unterstützen.
+        Außerdem können andere Entwickler das Projekt weiterentwickeln und somit den ursprünglichen Entwickler unterstützen.<br/>
       </p>
       <p>
         Das Einreichen eines Plugins ist bei uns nur für GitHub-Projekte möglich, die eine bestimmte Datei im Hauptverzeichnis beinhalten.
         Die Datei muss den Namen <b>deinplugin.yaml</b> tragen und eine vorgegebene Form besitzen.
         Die komplette Spezifikation der deinplugin.yaml-Datei findest du in einem von uns angelegten <a href="https://github.com/DeinPlugin/contribute" target="_blank">GitHub-Repository.</a>
         Wenn du direkt einsteigen willst, kannst du aber auch die unten gezeigten Beispiele anschauen oder dich an der deinplugin.yaml-Datei bereits eingereichter Plugins orientieren.
+      </p>
+      <p>
+        <span class="text-primary"><b>Wichtig:</b></span> Nutze bestmöglich GitHub-Releases, damit andere dein Plugin herunterladen können. GitHub Releases ist direkt in deinem Repository enthalten.
+        Andere Anbieter werden von uns möglicherweise <b>nicht</b> freigegeben (besonders wenn es sich um kommerzielle Plattformen oder Links mit begrenzter Lebensdauer handelt).
       </p>
     </b-col>
 
@@ -102,6 +113,9 @@ text* String
 " />
 
         <h2>DownloadObject</h2>
+        <p>
+          <b>Info:</b> Wird kein DownloadObject angelegt, so verlinkt der Download auf den GitHub-Releases Link des Repositories.
+        </p>
         <MarkdownDisplay md="
 ```yaml
 url*: String
@@ -230,25 +244,41 @@ videoSources:
 </template>
 
 <script setup>
-import {ref} from "vue";
+import {reactive, ref} from "vue";
 import Expandable from "@/components/Expandable.vue";
 import MarkdownDisplay from "@/components/MarkdownDisplay.vue";
+import {email, required, helpers} from "@vuelidate/validators";
+import useVuelidate from "@vuelidate/core";
 
-const form = ref({
+const state = reactive({
   email: '',
   github_url: '',
 })
+
+const githubUrlValidator = helpers.regex(/https?:\/\/(www\.)?(github)..[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/)
+const rules = {
+  email: { required, email },
+  github_url: { required, githubUrlValidator }
+}
+const v$ = useVuelidate(rules, state)
+
 const isLoading = ref(false)
 const success = ref(false)
 const error = ref(null)
 
 function onSubmit() {
+  v$.value.$touch()
+
+  if (v$.value.github_url.$error || v$.value.email.$error) {
+    return;
+  }
+
   const requestOptions = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      github_url: form.value.github_url.trim(),
-      mail: form.value.email.trim(),
+      mail: state.email.trim(),
+      github_url: state.github_url.trim().replace(/\/$/,''),
     })
   };
   isLoading.value = true
@@ -275,8 +305,8 @@ function onSubmit() {
 function reset() {
   success.value = false
   error.value = false
-  form.value.email = ''
-  form.value.github_url = ''
+  state.email = ''
+  state.github_url = ''
 }
 </script>
 

@@ -53,7 +53,7 @@
             {{download.name}}<br/>
             <a :href="download.download_url" target="_blank">{{ download.download_url }}</a>
           </p>
-          <p v-else>Keine Downloads, verweise auf <a :href="`${item.github_url}/releases`" target="_blank">GitHub Releases</a></p>
+          <p v-else class="text-muted">Keine Downloads, verweise auf <a :href="`${item.github_url}/releases`" target="_blank">GitHub Releases</a></p>
 
           <h2>Unterstützte Plattformen</h2>
           <b-row v-if="item.supportedPlatforms && item.supportedPlatforms.length > 0">
@@ -63,7 +63,7 @@
               <p><i>{{platforms.join(', ')}}</i></p>
             </b-col>
           </b-row>
-          <p v-else>Keine unterstützen Plattformen angegeben.</p>
+          <p v-else class="text-muted">Keine unterstützen Plattformen angegeben.</p>
 
           <h2>Dependencies</h2>
           <p v-for="dependency in item.dependencies" v-if="item.dependencies && item.dependencies.length > 0" >
@@ -72,13 +72,13 @@
             <span v-if="dependency.versionRange">Versionen: {{dependency.versionRange}} <br/></span>
             Benötigt: {{dependency.required === null ? false : dependency.required}}
           </p>
-          <p v-else>Keine Dependencies angegeben.</p>
+          <p v-else class="text-muted">Keine Dependencies angegeben.</p>
 
           <h2>Installation</h2>
           <div v-if="item.installations && item.installations.length > 0">
             <ModerationLanguageInfo :lang-items="item.installations" :wrap-in-pre="true" />
           </div>
-          <p v-else>Keine Installation angegeben, verwende Standard.</p>
+          <p v-else class="text-muted">Keine Installation angegeben, verwende Standard.</p>
 
           <h2>Tags</h2>
           <b-row v-if="item.tags && item.tags.length > 0">
@@ -87,7 +87,7 @@
               <p><i>Maximal 5 Tags</i></p>
             </b-col>
           </b-row>
-          <p v-else>Keine Angabe.</p>
+          <p v-else class="text-muted">Keine Angabe.</p>
 
           <h2>Bilder</h2>
           <b-row v-for="image in item.images" v-if="item.images && item.images.length > 0" class="mb-2">
@@ -98,7 +98,7 @@
               <b-img fluid :src="image"></b-img>
             </b-col>
           </b-row>
-          <p v-else>Keine Angabe.</p>
+          <p v-else class="text-muted">Keine Angabe.</p>
 
           <h2>Icon</h2>
           <div v-if="item.icon">
@@ -112,6 +112,7 @@
               </b-col>
             </b-row>
           </div>
+          <p v-else class="text-muted">Keine Angabe.</p>
 
           <h2>Videos</h2>
           <div v-if="item.videoSources && item.videoSources.length > 0">
@@ -126,6 +127,7 @@
               </b-col>
             </b-row>
           </div>
+          <p v-else class="text-muted">Keine Angabe.</p>
         </b-accordion-item>
       </b-accordion>
 
