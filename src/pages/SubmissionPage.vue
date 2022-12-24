@@ -137,14 +137,13 @@ required*: Boolean
       <Expandable title="Bedeutung der Felder aus der Metadatei" id="fields">
         <p>
           <code>specVersion</code>: Version der Spezifikation (aktuelle Version: 1)<br/>
-          <code>type</code>: Art des angebotenen Downloads (aktuell <code>plugin</code> oder <code>lib</code>)<br/>
+          <code>type</code>: Art des angebotenen Downloads (aktuell <code>{{types.join(', ')}}</code>)<br/>
           <code>name</code>: Anzeigename des Downloads<br/>
           <code>authors</code>: Autoren des Downloads<br/>
           <code>download</code>: Externer Download, der nicht unter GitHub-Releases bereitgestellt wird<br/>
-          <code>supportedPlatforms</code>: Liste aller unterstützten Plattformen (aktuell <code>spigot</code>, <code>paper</code> und/oder <code>sponge</code>)<br/>
+          <code>supportedPlatforms</code>: Liste aller unterstützten Plattformen (aktuell <code>{{platforms.join(', ')}}</code>)<br/>
           <code>supportedGameVersions</code>: Unterstütze Minecraft-Versionen<br/>
-          <code>category</code>: Kategorie des Downloads (aktuell: <code>adminTool</code>, <code>devTool</code>, <code>chat</code>, <code>economy</code>, <code>game</code>,
-          <code>protection</code>, <code>roleplay</code>, <code>worldManagement</code>, oder <code>misc</code>)<br/>
+          <code>category</code>: Kategorie des Downloads (aktuell: <code>{{categories.join(', ')}}</code>)<br/>
           <code>dependencies</code>: Andere Bibliotheken, die für die reibungslose Nutzung des Downloads benötigt werden<br/>
           <code>introduction</code>: Einleitungstext des Downlaods. Markdown-Format.<br/>
           <code>description</code>: Beschreibungstext des Downloads. Markdown-Format.<br/>
@@ -258,6 +257,7 @@ import Expandable from "@/components/Expandable.vue";
 import MarkdownDisplay from "@/components/MarkdownDisplay.vue";
 import {email, required, helpers} from "@vuelidate/validators";
 import useVuelidate from "@vuelidate/core";
+import {categories, platforms, types} from "@/data_util";
 
 const state = reactive({
   email: '',
