@@ -14,8 +14,8 @@
           </p>
 
           <div class="my-4">
-            <a href="https://www.buymeacoffee.com/deinplugin" target="_blank" class="my-3">
-              <img src="https://img.buymeacoffee.com/button-api/?text=Unterstütze uns!&emoji=&slug=deinplugin&button_colour=e27b69&font_colour=FFFFFF&font_family=Lato&outline_colour=000000&coffee_colour=FFDD00" />
+            <a href="https://github.com/sponsors/DeinPlugin" target="_blank" class="my-3">
+              <img height="35" src="https://img.shields.io/github/sponsors/DeinPlugin?label=Spenden&logo=GitHub">
             </a>
             <p class="my-2">Danke für deine Unterstützung.</p>
           </div>

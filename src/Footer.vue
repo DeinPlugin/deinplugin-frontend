@@ -9,7 +9,7 @@
         <b-col md="5" sm="3" class="my-3">
           <div id="links">
             <img @click="openExternalFooterLink($twitterUrl)" src="/img/twitter.svg">
-            <img @click="openExternalFooterLink($donationUrl)" src="/img/buymeacoffee.png">
+            <img @click="openExternalFooterLink($donationUrl)" src="/img/donation_filled.png">
             <img @click="openExternalFooterLink($discordJoinUrl)" src="/img/discord.svg">
           </div>
 
