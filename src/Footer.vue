@@ -10,6 +10,7 @@
           <div id="links">
             <img @click="openExternalFooterLink($twitterUrl)" src="/img/twitter.svg">
             <img @click="openExternalFooterLink($donationUrl)" src="/img/donation_filled.png">
+            <img @click="openExternalFooterLink($gitHubUrl)" src="/img/github.png">
             <img @click="openExternalFooterLink($discordJoinUrl)" src="/img/discord.svg">
           </div>
 
