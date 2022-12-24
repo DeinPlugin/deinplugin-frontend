@@ -49,6 +49,7 @@ app.use(VueGtag, {
 app.config.globalProperties.$discordJoinUrl = 'https://discord.gg/azG4wxrQWy'
 app.config.globalProperties.$donationUrl = 'https://github.com/sponsors/DeinPlugin'
 app.config.globalProperties.$twitterUrl = 'https://twitter.com/deinpluginnet'
+app.config.globalProperties.$gitHubUrl = 'https://github.com/DeinPlugin'
 app.config.globalProperties.$roadmapUrl = 'https://github.com/orgs/DeinPlugin/projects/1'
 
 app.mount('#app')

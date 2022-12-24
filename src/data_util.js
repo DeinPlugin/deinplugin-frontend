@@ -1,6 +1,6 @@
 export const types = ['plugin', 'lib']
 export const categories = ['adminTool', 'devTool', 'chat', 'economy', 'game', 'protection', 'roleplay', 'worldManagement', 'misc']
-export const platforms = ['spigot', 'paper', 'sponge']
+export const platforms = ['spigot', 'paper', 'sponge', 'minestom']
 
 export function getDataFromType(type) {
     switch (type.toLowerCase()) {
@@ -69,6 +69,10 @@ export function getDataFromPlatform(platform) {
         case 'sponge': return {
             name: 'Sponge',
             icon: 'fluent-emoji-high-contrast:sponge'
+        }
+        case 'minestom': return {
+            name: 'Minestom',
+            icon: 'tabler:square-dot'
         }
     }
 }

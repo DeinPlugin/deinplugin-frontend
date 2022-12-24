@@ -13,15 +13,15 @@
             <h1>Beschreibung</h1>
             <MarkdownDisplay :md="item.descriptions[0].value"/>
 
-            <div v-if="item.dependencies[0]">
+            <div v-if="item.dependencies && item.dependencies[0]">
               <h1>Dependencies</h1>
               <p>
                 Dependencies sind Plugins oder Bibliotheken, die für die reibungslose Nutzung des Plugins installiert werden.<br/>
                 Lade dir Dependencies, die mit einem Stern als "unbedingt notwendig" gekennzeichnet wurden, mit dem Plugin herunter und installiere sie auf dem Server.
               </p>
               <b-row>
-                <b-col v-for="dependency in dependencies" lg="3" md="6" class="dependency">
-                  <h1>Name</h1>
+                <b-col v-for="(dependency, i) in item.dependencies" lg="3" md="6" class="dependency">
+                  <h1>{{!dependency.name ? `Dependency ${i + 1}` : dependency.name}}</h1>
                   <p v-if="dependency.required">Zwingend notwendig</p>
                   <p v-else>Optional</p>
                   <p v-if="dependency.versionRange">Version {{dependency.versionRange}}</p>
@@ -120,11 +120,14 @@ h1 {
 }
 
 .dependency {
-  background-color: #181818;
   text-align: center;
+  padding: 10px 0;
+  border: 1px solid gray;
 }
 
 .dependency h1 {
+  margin-top: 0rem;
+  border-top: 0;
   font-size: 14pt;
 }
 

@@ -15,10 +15,10 @@
 
     <b-container fluid>
         <b-row class="justify-content-center my-5 mx-4">
-          <HoverCard title="Owner" img-url="/img/owner.svg" :on-click="openPlugins">
+          <HoverCard title="Server-Admin" img-url="/img/owner.svg" :on-click="openPlugins">
             Lade dir jetzt die Plugins herunter, die am besten zu deinem Server passen und begeistere deine Community!
           </HoverCard>
-          <HoverCard title="Developer" img-url="/img/developer.svg" :on-click="openSubmission">
+          <HoverCard title="Entwickler" img-url="/img/developer.svg" :on-click="openSubmission">
             Reiche deine Plugins auf DeinPlugin ein! Die breite User-Basis hilft dir, Fehler zu finden und dein Plugin zu verbessern.
           </HoverCard>
         </b-row>

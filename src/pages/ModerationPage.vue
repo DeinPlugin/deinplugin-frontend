@@ -19,20 +19,33 @@
 
   <b-container v-if="items">
     <h1 class="text-primary text-center my-5">Moderations-Dashboard</h1>
+    <p>
+      Pending: {{items.filter((i) => i.state === 'pending').length}} <br>
+      Approved: {{items.filter((i) => i.state === 'approved').length}} <br>
+      Rejected: {{items.filter((i) => i.state === 'rejected').length}} <br>
+    </p>
     <b-button @click="logout" class="text-white my-3">Ausloggen</b-button>
-    <ModerationItemCard v-for="item in items" :item="item"/>
+    <b-button @click="showNotApprovedOnly = !showNotApprovedOnly" class="text-white mx-3">{{showNotApprovedOnly ? 'Zeige alle' : 'Zeige nur nicht angenommene'}}</b-button>
+    <ModerationItemCard v-for="item in filteredItems" :item="item"/>
   </b-container>
 </template>
 
 <script setup>
 import { useCookies } from "vue3-cookies";
-import {ref} from "vue";
+import {computed, ref} from "vue";
 import ModerationItemCard from "@/components/moderation/ModerationItemCard.vue";
 
 const { cookies } = useCookies()
 const passwordInput = ref('')
 const items = ref(null)
 const error = ref(null)
+const showNotApprovedOnly = ref(false)
+
+const filteredItems = computed(() => {
+  return showNotApprovedOnly.value ?
+      items.value.filter((i) => i.state !== 'approved') :
+      items.value
+})
 
 function setPassword() {
   cookies.set('mod_secret', passwordInput.value)
@@ -44,6 +57,7 @@ async function fetchPendingItems() {
   const res = await fetch(`${import.meta.env.VITE_SERVICE_URL}/plugins/?state=pending&secret=${cookies.get('mod_secret')}`)
   if (res.ok) {
     items.value = await res.json()
+    items.value.sort((a, b) => (a.state < b.state) ? 1 : -1)
     error.value = null
     return;
   }

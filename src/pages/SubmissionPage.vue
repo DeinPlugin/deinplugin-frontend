@@ -204,16 +204,16 @@ dependencies:
     name: Dependency 2
     required: false
 introduction:
-  - de: Ein einfaches Plugin, das das `/helloworld`-Kommando hinzufügt
-  - en: A simple plugin adding the `/helloworld`-command
+  de: Ein einfaches Plugin, das das `/helloworld`-Kommando hinzufügt
+  en: A simple plugin adding the `/helloworld`-command
 description:
-  - de: |
+  de: |
       # Überblick
       Das Plugin fügt den weltbewegenden Befehl `/helloworld` hinzu.
 
       # Nutzung
       Zur Nutzung des Plugins muss lediglich `/helloworld` im Chat eingegeben werden.
-  - en: |
+  en: |
       # Overview
       The plugin adds the groundbreaking command `/helloworld`.
 
