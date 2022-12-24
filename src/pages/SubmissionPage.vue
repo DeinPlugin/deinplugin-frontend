@@ -141,7 +141,7 @@ required*: Boolean
           <code>name</code>: Anzeigename des Downloads<br/>
           <code>authors</code>: Autoren des Downloads<br/>
           <code>download</code>: Externer Download, der nicht unter GitHub-Releases bereitgestellt wird<br/>
-          <code>supportedPlatforms</code>: Liste aller nterstützten Plattformen (aktuell <code>spigot</code>, <code>paper</code> und/oder <code>sponge</code>)<br/>
+          <code>supportedPlatforms</code>: Liste aller unterstützten Plattformen (aktuell <code>spigot</code>, <code>paper</code> und/oder <code>sponge</code>)<br/>
           <code>supportedGameVersions</code>: Unterstütze Minecraft-Versionen<br/>
           <code>category</code>: Kategorie des Downloads (aktuell: <code>adminTool</code>, <code>devTool</code>, <code>chat</code>, <code>economy</code>, <code>game</code>,
           <code>protection</code>, <code>roleplay</code>, <code>worldManagement</code>, oder <code>misc</code>)<br/>

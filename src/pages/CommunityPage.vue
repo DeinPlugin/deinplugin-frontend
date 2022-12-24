@@ -8,7 +8,7 @@
           Erhalte immer die aktuellen Neuigkeiten zur Plattform und nimm an exklusiven Events wie Verlosungen teil.
         </HoverCard>
         <HoverCard title="Donation" img-url="/img/donation.svg" :on-click="openDonation">
-          Unterstütze die Entwicklung- und Unterhaltungskosten der Plattform mit einer finanziellen Spende.
+          Unterstütze die Kosten der Plattform mit einer finanziellen Spende und erhalte dafür verschiedene Vorteile.
         </HoverCard>
         <HoverCard title="Discord" img-url="/img/discord_outline.png" :on-click="openDiscord">
           Vernetze dich mit einer wachsenden Community aus Entwicklern und Serverbesitzern oder gib und Feedback.
@@ -45,7 +45,7 @@ function openTwitter() {
 }
 
 function openDonation() {
-  window.open('https://www.buymeacoffee.com/deinplugin', '_blank')
+  window.open('https://github.com/sponsors/DeinPlugin', '_blank')
 }
 
 function openDiscord() {
