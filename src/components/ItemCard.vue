@@ -58,6 +58,7 @@ defineProps({
 
 h1 {
   font-size: 23pt;
+  word-wrap: break-word;
 }
 
 img {
