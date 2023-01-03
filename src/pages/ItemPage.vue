@@ -69,7 +69,14 @@
               Du kannst Fragen und Vorschläge auch auf unserem <a :href="$discordJoinUrl" target="_blank">Discord-Server</a> loswerden.
             </p>
 
-            <img src="/img/issue_01.png" class="mw-100">
+            <div v-if="issues && issues[0]">
+              <h1>Issues</h1>
+              <b-row>
+                <b-col v-for="issue in issues" xl="4" lg="6" md="12" class="align-self-stretch my-2">
+                  <IssueCard :issue="issue"></IssueCard>
+                </b-col>
+              </b-row>
+            </div>
           </b-tab>
         </b-tabs>
       </b-col>
@@ -88,8 +95,10 @@ import MarkdownDisplay from "@/components/MarkdownDisplay.vue"
 import ItemSummary from "@/components/ItemSummary.vue"
 import DownloadModal from "@/components/DownloadModal.vue"
 import {event} from "vue-gtag";
+import IssueCard from "@/components/IssueCard.vue";
 
 const item = ref(null)
+const issues = ref(null)
 const route = useRoute()
 
 async function fetchItem() {
@@ -99,9 +108,27 @@ async function fetchItem() {
   )
 
   item.value = await res.json()
+  await fetchIssues();
+
   event('visit-storage-item', {
     event_label: item.value.names[0].value
   })
+}
+
+async function fetchIssues(){
+  issues.value = null
+
+  let REST_URL = "https://api.github.com/repos"
+  // Remove github prefix for getting the project path
+  let projectPath = item.github_url.replace("https://github.com/", "");
+
+  // Only request currently opened issues
+  const res = await fetch(
+      `${REST_URL}/${projectPath}/issues?state=open`
+  )
+
+  issues.value = await res.json()
+  console.log(issues.value)
 }
 
 fetchItem()
