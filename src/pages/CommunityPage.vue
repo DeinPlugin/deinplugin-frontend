@@ -11,7 +11,7 @@
           Unterstütze die Kosten der Plattform mit einer finanziellen Spende und erhalte dafür verschiedene Vorteile.
         </HoverCard>
         <HoverCard title="Discord" img-url="/img/discord_outline.png" :on-click="openDiscord">
-          Vernetze dich mit einer wachsenden Community aus Entwicklern und Serverbesitzern oder gib und Feedback.
+          Vernetze dich mit einer wachsenden Community aus Entwicklern und Serverbesitzern oder gib uns Feedback.
         </HoverCard>
       </b-row>
     </b-container>
